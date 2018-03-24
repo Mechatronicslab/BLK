@@ -1,0 +1,2095 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.juli_soep.sekolah.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/green"
+        android:layout_below="@+id/firstLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daftar"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayTransparant"
+        android:layout_below="@+id/secondLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+            android:gravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@color/orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/data_siswa"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTingkat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tingkat"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etProgram"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Program"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNama"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Nama Lengkap"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@color/white">
+
+                    <RadioGroup
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:id="@+id/radiogrupsex"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:background="#94ffffff">
+
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:text="Pria"
+                            android:textColor="@color/blackText"/>
+
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:text="Wanita"
+                            android:textColor="@color/blackText"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNisn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="NISN"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="NIS"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNoijazah"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.Ijazah"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_skhun"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.SKHUN"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_un"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.Ujian Nasional"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNik"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="NIK"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNpsn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="NPSN"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etSekolah_asal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Sekolah Asal"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTmptLahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tempat Lahir"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTglLahir"
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent"
+                    android:hint="Tanggal Lahir"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/pickDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Pilih"
+                        android:textSize="14dp"
+                        android:textColorHint="@color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:onClick="datePicker"
+                        android:gravity="center"
+                        android:background="@color/blue"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Pilih Agama..."
+                    android:textSize="14dp"
+                    android:textColor="@color/blackText"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="15dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etKeb_khusus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Berkebutuhan Khusus"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etAlamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Alamat"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etDusun"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Dusun"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etKelurahan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Kelurahan"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etKecamatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Kecamatan"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etKabupaten"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Kabupaten"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etProvinsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Provinsi"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etAlat_transportasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Alat transportasi ke sekolah"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etJns_tinggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Jenis Tinggal"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTlp_rmh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.telepon rumah"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Email"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_hp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.Handphone"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_kks"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.KKS"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_kps"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.KPS / PHK"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etUsulanPip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Usulan dari sekolah layak PIP"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_kip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.KIP"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNama_pip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Nama tertera di KIP"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTolak_pip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Alasan menolak KIP"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_reg_akta"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="No.Registrasi akta lahir"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTinggi_bdn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tinggi badan"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etBerat_bdn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Berat badan"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etJarak_skolah"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Jarak sekolah dari rumah (km)"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etWaktu_tempuh_skolah"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Waktu tempuh ke sekolah (menit)"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etJml_sodara"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Jumlah sodara kandung"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@color/orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/data_prestasi"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etJns_prestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Jenis Prestasi"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etTingkat_prestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tingkat Prestasi"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNama_prestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Nama Prestasi"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etThun_dapat_prestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tahun mendapat prestasi"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etPenyelenggara_prestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Penyelenggara Prestasi"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@color/orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/beasiswa"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etJns_beasiswa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Jenis Beasiswa"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etPenyelenggara_beasiswa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Penyelenggara/Sumber beasiswa"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etThun_mulai_beasiswa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tahun mulai"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etThun_selesai_beasiswa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tahun selesai"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@color/orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kesejahteraan"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etJns_kesejahteraan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Jenis_kesejahteraan"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etNo_kesejahteraan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Nomor"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etThun_mulai_kesejahteraan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tahun mulai"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <EditText
+                    android:id="@+id/etThun_selesai_kesejahteraan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tahun selesai"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/blackText"
+                    android:textSize="15dp"
+                    android:inputType="textImeMultiLine"
+                    android:maxLength="15"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@color/white"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/greenTransparant"/>
+
+                <Spinner
+                    android:id="@+id/spinnerJurusan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Pilihan Pket Kompetensi Keahlian"
+                    android:textSize="14dp"
+                    android:textColor="@color/blackText"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="15dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="SELANJUTNYA"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_arrow"/>
+
+                <Button
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="BATAL"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_arrow_a"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

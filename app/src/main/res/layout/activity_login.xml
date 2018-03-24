@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    tools:context="com.example.juli_soep.sekolah.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!--Text Login start-->
+        <LinearLayout
+            android:id="@+id/firstLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-condensed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_desc"
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:textAllCaps="false"/>
+
+        </LinearLayout>
+        <!--Text login end-->
+
+        <!--Form input start-->
+        <LinearLayout
+            android:id="@+id/secondLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editUsername"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:inputType="text"
+                android:hint="Username"
+                android:fontFamily="serif"
+                android:textColorHint="#a93b3535"
+                android:textColor="#a93b3535"
+                android:paddingLeft="25dp"
+                android:background="@drawable/bar_input"
+                android:layout_marginBottom="15dp"/>
+
+            <EditText
+                android:id="@+id/editPassword"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:fontFamily="serif"
+                android:textColorHint="#a93b3535"
+                android:textColor="#a93b3535"
+                android:paddingLeft="25dp"
+                android:background="@drawable/bar_input"/>
+
+        </LinearLayout>
+        <!--Form input end-->
+
+        <!--Button start-->
+        <LinearLayout
+            android:id="@+id/thirdLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:background="@drawable/button"
+                android:layout_marginBottom="15dp"/>
+
+            <Button
+                android:id="@+id/btnRegistered"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:text="@string/regist_desc"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+        <!--Button end-->
+
+    </LinearLayout>
+
+</RelativeLayout>

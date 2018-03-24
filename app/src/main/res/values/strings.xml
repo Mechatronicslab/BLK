@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">SMK BLK</string>
+
+    <string name="daftar">Sign Up</string>
+    <string name="profile">Profile</string>
+    <string name="about">About App</string>
+    <string name="profile_sekolah">Profile Sekolah</string>
+
+    <string name="input_karyawan">Input Data Karyawan</string>
+    <string name="input_siswa">Input Data Siswa</string>
+    <string name="view_karyawan">Lihat Data Siswa</string>
+    <string name="view_siswa">Lihat Data Siswa</string>
+    <string name="input_mapel">Daftar Mata Pelajaran</string>
+    <string name="view_absen_karyawan">Absen Karyawan</string>
+    <string name="view_absen_siswa">Absen Siswa</string>
+    <string name="verifi_user">Verifikasi User</string>
+    <string name="input_jadwal">Penjadwalan</string>
+    <string name="daftar_guru">Daftar Guru</string>
+    <string name="daftar_staf">Daftar Staf</string>
+    <string name="daftar_karyawan">Daftar Karyawan</string>
+    <string name="daftar_siswa">Daftar Siswa</string>
+    <string name="data_satpam">Data Satpam</string>
+    <string name="data_staf">Data Staf</string>
+
+    <string name="gajih_satpam">Gajih Satpam</string>
+    <string name="gajih_staf">Gajih Staf</string>
+
+    <string name="profil_guru">Profil Guru</string>
+    <string name="scan_qr">Scan QR Code</string>
+    <string name="absen_siswa">Absensi Siswa</string>
+    <string name="jadwal_ajar">Jadwal Mengajar</string>
+
+    <string name="sejarah_sekolah">Sejarah Sekolah</string>
+    <string name="prestasi_sekolah">Prestasi Sekolah</string>
+    <string name="alamat_sekolah">Alamat Sekolah</string>
+    <string name="visi_sekolah">Visi dan Misi</string>
+
+    <string name="profil_siswa">Profil Siswa</string>
+
+    <string name="kontak_sekolah">Kontak</string>
+    <string name="data_siswa">Data Siswa</string>
+    <string name="data_prestasi">Catatan Prestasi</string>
+    <string name="beasiswa">Beasiswa</string>
+    <string name="login">Log In</string>
+    <string name="kesejahteraan">Kesejahteraan</string>
+
+    <string name="login_desc">Masuk sekarang untuk menggunakan aplikasi</string>
+    <string name="registered_desc">Masukan identitas diri anda untuk mendaftar</string>
+
+    <string name="regist_desc">Daftarkan diri anda sekarang !</string>
+    <string name="back_desc">Masuk sekarang jika anda sudah terdaftar !</string>
+
+    <!--welcome screen-->
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Halo Pelajar!</string>
+    <string name="slide_1_desc">Cara mudah management data dalam satu aplikasi!</string>
+
+    <string name="title_activity_alamat">Map</string>
+</resources>

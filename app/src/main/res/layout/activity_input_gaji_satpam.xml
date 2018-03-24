@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_input_gaji_satpam"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.juli_soep.sekolah.BAK.InputGajiSatpam">
+
+    <LinearLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/green"
+        android:layout_below="@+id/firstLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Input Gaji Satpam"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayTransparant"
+        android:layout_below="@+id/secondLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:gravity="center_vertical|center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/orange">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gaji Satpam"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_list"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/greenTransparant"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Nama Lengkap"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blackText"
+            android:textSize="15dp"
+            android:maxLength="15"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_list"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/greenTransparant"/>
+
+        <EditText
+            android:id="@+id/etGajiPokok"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Gaji Pokok"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blackText"
+            android:textSize="15dp"
+            android:inputType="number"
+            android:maxLength="15"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_list"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/greenTransparant"/>
+
+        <EditText
+            android:id="@+id/etTunjanganJabatan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Tunjangan Jabatan"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blackText"
+            android:textSize="15dp"
+            android:inputType="number"
+            android:maxLength="15"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_list"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/greenTransparant"/>
+
+        <EditText
+            android:id="@+id/etPulsa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Pulsa"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blackText"
+            android:textSize="15dp"
+            android:maxLength="15"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_list"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/greenTransparant"/>
+
+        <EditText
+            android:id="@+id/etThr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="T H R"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blackText"
+            android:textSize="15dp"
+            android:inputType="textMultiLine"
+            android:maxLength="15"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_list"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/greenTransparant"/>
+
+        <EditText
+            android:id="@+id/etTtlGaji"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Total Gaji"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="15dp"
+            android:textColor="@color/blackText"
+            android:textSize="15dp"
+            android:inputType="number"
+            android:maxLength="15"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/orange">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potongan"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_list"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/greenTransparant"/>
+
+            <EditText
+                android:id="@+id/etPsuyono"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="P. Suyono"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp"
+                android:textColor="@color/blackText"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:maxLength="15"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_list"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/greenTransparant"/>
+
+            <EditText
+                android:id="@+id/etKoperasi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Koprasi"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp"
+                android:textColor="@color/blackText"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:maxLength="15"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_list"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/greenTransparant"/>
+
+            <EditText
+                android:id="@+id/etJalur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Jalur"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp"
+                android:textColor="@color/blackText"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:maxLength="15"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_list"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/greenTransparant"/>
+
+            <EditText
+                android:id="@+id/etDanaSosial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Dana Sosial"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp"
+                android:textColor="@color/blackText"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:maxLength="15"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_list"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/greenTransparant"/>
+
+            <EditText
+                android:id="@+id/etTtlPotongan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Total Potongan"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp"
+                android:textColor="@color/blackText"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:maxLength="15"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_list"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/greenTransparant"/>
+
+            <EditText
+                android:id="@+id/etGajiTerima"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Gaji diterima"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp"
+                android:textColor="@color/blackText"
+                android:textSize="15dp"
+                android:inputType="number"
+                android:maxLength="15"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greenTransparant"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/zubmit"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:text="Kirim"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_arrow"/>
+
+            <Button
+                android:id="@+id/batal"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:text="BATAL"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_arrow_a"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

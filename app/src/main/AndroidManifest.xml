@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.juli_soep.sekolah">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="volley.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logos"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".home.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".home.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Welcome" />
+        <activity
+            android:name=".home.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".home.PrestasiSekolah" />
+        <activity android:name=".home.SejarahSekolah" />
+        <activity android:name=".home.VisiSekolah" />
+        <activity android:name=".home.MisiSekolah" />
+        <activity android:name=".home.AlamatSekolah" />
+        <activity android:name=".admin_akademik.DaftarGuru" />
+        <activity android:name=".admin_akademik.AdminAkademikActivity" />
+        <activity android:name=".siswa.SiswaActivity" />
+        <activity android:name=".guru.GuruActivity" />
+        <activity android:name=".siswa.ProfileSiswa" />
+        <activity android:name=".guru.ProfileGuru" />
+        <activity android:name=".BAK.Bak" />
+        <activity android:name=".BAK.InputGajiPegawai" />
+        <activity android:name=".BAK.InputGajiSatpam" />
+        <activity android:name=".BAK.ShowGajiSatpam" />
+        <activity android:name=".BAK.ShowGajiStaff" />
+        <activity android:name=".BAK.DetailGajiSatpam" />
+        <activity android:name=".admin_akademik.karyawan"></activity>
+    </application>
+
+</manifest>
