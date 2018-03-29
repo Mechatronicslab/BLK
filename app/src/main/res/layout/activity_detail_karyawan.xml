@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_detail_karyawan"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.juli_soep.sekolah.admin_akademik.DetailKaryawan">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/foto"
+            android:layout_width="65dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="65dp"
+            android:src="@drawable/ic_user"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="15dp">
+            <TextView
+                android:id="@+id/etNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adi Permana"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:layout_marginTop="25dp"/>
+
+            <TextView
+                android:id="@+id/etNik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textStyle="italic"
+                android:text="Nik/Nisn"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:scrollbarStyle="insideInset"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etNuptk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="NUPTK"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etTmptLahir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tempat Lahir"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etTglLahir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tanggal Lahir"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etKelamin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Jenis Kelamin"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etPendTerakhir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Pendidikan Terakhir"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etTMT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mulai Tugas"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etJabatan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Jabatan"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Status"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etSertifikasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Sertifikasi"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <EditText
+                        android:enabled="false"
+                        android:id="@+id/etAlamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Alamat"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/green"
+                        app:backgroundTint="@color/green"
+                        android:drawableTint="@color/green"
+                        android:text="-"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greenTransparant"/>
+
+        </TableLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EDIT"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            />
+    </LinearLayout>
+
+</LinearLayout>
+

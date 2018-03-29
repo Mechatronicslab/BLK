@@ -1,21 +1,16 @@
-package com.example.juli_soep.sekolah.BAK;
+package com.example.juli_soep.sekolah.helper.admin_akademik;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.juli_soep.sekolah.R;
-
+import com.example.juli_soep.sekolah.BAK.Bak;
+import com.example.juli_soep.sekolah.BAK.InputGajiSatpam;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,81 +18,19 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import volley.AppController;
 import volley.Config;
 
-public class InputGajiSatpam extends AppCompatActivity {
+import static volley.AppController.TAG;
+
+/**
+ * Created by MSI on 3/25/2018.
+ */
+
+public class Proses_function {
     private ProgressDialog pDialog;
-    String TAG = InputGajiSatpam.class.getSimpleName();
-    int socketTimeout = 30000; // 30 seconds. You can change it
-    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
-            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
-    @BindView(R.id.etName)
-    TextView getNamanya;
-    @BindView(R.id.etGajiPokok)
-    TextView getGajiPokok;
-    @BindView(R.id.etTunjanganJabatan)
-    TextView getTunjanganJabatan;
-    @BindView(R.id.etPulsa)
-    TextView getPulsa;
-    @BindView(R.id.etThr)
-    TextView getThr;
-    @BindView(R.id.etTtlGaji)
-    TextView getTtlGaji;
-    @BindView(R.id.etPsuyono)
-    TextView getSuyono;
-    @BindView(R.id.etKoperasi)
-    TextView getKoprasi;
-    @BindView(R.id.etJalur)
-    TextView getJalur;
-    @BindView(R.id.etDanaSosial)
-    TextView getDanaSosial;
-    @BindView(R.id.etTtlPotongan)
-    TextView getTtlPotongan;
-    @BindView(R.id.etGajiTerima)
-    TextView getGajiTerima;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input_gaji_satpam);
-        ButterKnife.bind(this);
-        pDialog = new ProgressDialog(this);
-        pDialog.setCancelable(false);
-    }
-
-    @OnClick(R.id.zubmit)
-    void submit() {
-        String nama = getNamanya.getText().toString();
-        String jabatan = "Satpam";
-        String gaji_pokok = getGajiPokok.getText().toString();
-        String tunj_jabatan = getTunjanganJabatan.getText().toString();
-        String pulsa = getPulsa.getText().toString();
-        String thr = getThr.getText().toString();
-        String ttl_gaji = getTtlGaji.getText().toString();
-        String p_suyono = getSuyono.getText().toString();
-        String koprasi = getKoprasi.getText().toString();
-        String jalur = getJalur.getText().toString();
-        String dana_sosial = getDanaSosial.getText().toString();
-        String ttl_potongan = getTtlPotongan.getText().toString();
-        String gaji_terima = getGajiTerima.getText().toString();
-        gaji_satpam(nama,jabatan,gaji_pokok,tunj_jabatan,pulsa,thr,ttl_gaji,p_suyono,koprasi,jalur,dana_sosial,ttl_potongan,gaji_terima);
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent i = new Intent(InputGajiSatpam.this, Bak.class);
-        startActivity(i);
-        finish();
-    }
-
-    private void gaji_satpam(final String nama,final String jabatan, final String gaji_pokok,final String tunj_jabatan
+    /*private void UpdateKaryawan(final String nama,final String jabatan, final String gaji_pokok,final String tunj_jabatan
             ,final String pulsa,final String thr,final String ttl_gaji,final String suyono,final String koprasi
             ,final String jalur,final String dana_sosial,final String ttl_potongan,final String gaji_terima){
 
@@ -111,7 +44,7 @@ public class InputGajiSatpam extends AppCompatActivity {
                 Config.URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, "Response: " + response.toString());
+                Log.d("Response: " , response.toString());
                 hideDialog();
 
                 try {
@@ -120,8 +53,8 @@ public class InputGajiSatpam extends AppCompatActivity {
 
                     if(!error){
                         String result = jObj.getString("message");
-                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(InputGajiSatpam.this,Bak.class);
+                        Toast.makeText(context,result,Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(InputGajiSatpam.class,Bak.class);
                         startActivity(i);
                         finish();
                     }else {
@@ -175,13 +108,13 @@ public class InputGajiSatpam extends AppCompatActivity {
 
     }
 
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }*/
 }
