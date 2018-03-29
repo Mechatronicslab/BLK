@@ -74,12 +74,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 intent.putExtra("username",username);
                 startActivity(intent);
             }
-            else if (level.contains("2")) {
+            /*else if (level.contains("2")) {
                 Intent intent = new Intent(LoginActivity.this, Bak.class);
                 intent.putExtra("nama", nama);
                 intent.putExtra("username", username);
                 startActivity(intent);
-            }
+            }*/
             else if (level.contains("3")) {
                 Intent intent = new Intent(LoginActivity.this, GuruActivity.class);
                 intent.putExtra("nama", nama);
