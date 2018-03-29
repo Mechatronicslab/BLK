@@ -18,9 +18,11 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+//import com.example.juli_soep.sekolah.BAK.Bak;
 import com.example.juli_soep.sekolah.admin_akademik.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.guru.GuruActivity;
 import com.example.juli_soep.sekolah.home.MainActivity;
+import com.example.juli_soep.sekolah.keuangan.AppsKeuangan;
 import com.example.juli_soep.sekolah.siswa.SiswaActivity;
 
 import org.json.JSONException;
@@ -72,13 +74,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 intent.putExtra("nama", nama);
                 intent.putExtra("username",username);
                 startActivity(intent);
-            }
-            /*else if (level.contains("2")) {
-                Intent intent = new Intent(LoginActivity.this, Bak.class);
+            } else if (level.contains("2")) {
+                Intent intent = new Intent(LoginActivity.this, AppsKeuangan.class);
                 intent.putExtra("nama", nama);
                 intent.putExtra("username", username);
                 startActivity(intent);
-            }*/
+            }
             else if (level.contains("3")) {
                 Intent intent = new Intent(LoginActivity.this, GuruActivity.class);
                 intent.putExtra("nama", nama);
@@ -162,14 +163,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             i.putExtra("username", user);
                             i.putExtra("lvl", level);
                             startActivity(i);
-                        /*} else if (theRole.equals("2")) {
+                        } else if (theRole.equals("2")) {
                             //Lauch to main activity
                             Intent i = new Intent(LoginActivity.this,
-                                    Bak.class);
+                                    AppsKeuangan.class);
                             i.putExtra("nama",nama);
                             i.putExtra("username", user);
                             i.putExtra("lvl", level);
-                            startActivity(i);*/
+                            startActivity(i);
                         } else if (theRole.equals("3")) {
                             //Lauch to main activity
                             Intent i = new Intent(LoginActivity.this,
