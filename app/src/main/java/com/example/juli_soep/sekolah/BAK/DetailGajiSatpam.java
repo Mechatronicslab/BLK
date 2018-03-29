@@ -16,7 +16,6 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.helper.NewsDataAdmin;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +27,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 
 public class DetailGajiSatpam extends AppCompatActivity {
     private ProgressDialog pDialog;
@@ -80,7 +79,7 @@ public class DetailGajiSatpam extends AppCompatActivity {
 
         String tag_json_obj = "json_obj_req";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

@@ -17,8 +17,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
 import com.example.juli_soep.sekolah.helper.NewsAdapterAdmin;
@@ -35,9 +33,8 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 
 public class ShowGajiSatpam extends AppCompatActivity {
     List<NewsDataAdmin> newsList = new ArrayList<NewsDataAdmin>();
@@ -89,7 +86,7 @@ public class ShowGajiSatpam extends AppCompatActivity {
 
         String tag_json_obj = "json_obj_req";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

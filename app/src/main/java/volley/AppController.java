@@ -1,6 +1,7 @@
 package volley;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -12,7 +13,7 @@ import com.android.volley.toolbox.Volley;
 * 	We are creating a Application Singleton Object by extending Application, so it should be declared as a application in the "AndroidMainFests" file
 * */
 
-public class AppController extends Application
+public class AppController extends MultiDexApplication
 {
 	public static final String TAG = AppController.class.getSimpleName();
 

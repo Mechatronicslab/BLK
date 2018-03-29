@@ -3,6 +3,7 @@
     package="com.example.juli_soep.sekolah">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="volley.AppController"
@@ -55,7 +56,14 @@
         <activity android:name=".BAK.ShowGajiSatpam" />
         <activity android:name=".BAK.ShowGajiStaff" />
         <activity android:name=".BAK.DetailGajiSatpam" />
-        <activity android:name=".admin_akademik.karyawan"></activity>
+        <activity android:name=".admin_akademik.karyawan" />
+        <activity
+            android:name=".admin_akademik.DetailKaryawan"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".admin_akademik.EditKaryawan"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".admin_akademik.FullScreenFoto" />
     </application>
 
 </manifest>

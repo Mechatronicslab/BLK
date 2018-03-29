@@ -28,7 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 import volley.Session;
 
 public class ProfileGuru extends AppCompatActivity {
@@ -59,8 +59,7 @@ public class ProfileGuru extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_guru);
-        nohp = getIntent().getExtras().getString("nohp");
-        sesion = new Session(getApplicationContext());
+        nohp = getIntent().getExtras().getString("nik");
         ButterKnife.bind(this);
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -74,7 +73,7 @@ public class ProfileGuru extends AppCompatActivity {
 
         String tag_json_obj = "json_obj_req";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

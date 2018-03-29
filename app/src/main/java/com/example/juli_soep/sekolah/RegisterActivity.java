@@ -38,7 +38,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     EditText tingkat,program,nama,nisn,nis,no_ijazah,no_skhun,no_un,nik,npsn,sekolah_asal,
@@ -260,7 +260,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL2, new Response.Listener<String>() {
+                Config.URL2, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Response: " + response.toString());
@@ -302,7 +302,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put(Config_URL.TAG, "regis_siswa_baru");
+                params.put(Config.TAG, "regis_siswa_baru");
                 params.put("tingkat", tingkat);
                 params.put("program", program);
                 params.put("nama_lengkap", nama);

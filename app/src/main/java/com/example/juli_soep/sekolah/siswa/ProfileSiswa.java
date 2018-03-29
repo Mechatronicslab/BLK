@@ -28,7 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 import volley.Session;
 
 public class ProfileSiswa extends AppCompatActivity {
@@ -76,7 +76,7 @@ public class ProfileSiswa extends AppCompatActivity {
 
         String tag_json_obj = "json_obj_req";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

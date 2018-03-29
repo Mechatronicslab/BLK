@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 
 public class InputGajiSatpam extends AppCompatActivity {
     private ProgressDialog pDialog;
@@ -109,7 +108,7 @@ public class InputGajiSatpam extends AppCompatActivity {
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Response: " + response.toString());
@@ -151,7 +150,7 @@ public class InputGajiSatpam extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put(Config_URL.TAG, "gaji_satpam");
+                params.put(Config.TAG, "gaji_satpam");
                 params.put("nama", nama);
                 params.put("jabatan", jabatan);
                 params.put("gaji_pokok",gaji_pokok );

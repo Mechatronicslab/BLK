@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 import volley.Session;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
@@ -215,9 +215,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put(Config_URL.TAG, Config_URL.TAG_LOGIN);
-                params.put(Config_URL.username, username);
-                params.put(Config_URL.password, password);
+                params.put(Config.TAG, Config.TAG_LOGIN);
+                params.put(Config.username, username);
+                params.put(Config.password, password);
 
                 return params;
             }

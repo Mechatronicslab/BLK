@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,11 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.juli_soep.sekolah.BAK.Bak;
-import com.example.juli_soep.sekolah.BAK.ShowGajiSatpam;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.helper.NewsAdapterAdmin;
-import com.example.juli_soep.sekolah.helper.NewsDataAdmin;
 import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterKaryawan;
 import com.example.juli_soep.sekolah.helper.admin_akademik.DataKaryawan;
 
@@ -36,7 +34,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 
 public class karyawan extends AppCompatActivity {
     List<DataKaryawan> newsList = new ArrayList<DataKaryawan>();
@@ -63,9 +61,19 @@ public class karyawan extends AppCompatActivity {
         newsList.clear();
         adapter = new AdapterKaryawan(karyawan.this, newsList);
         list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(karyawan.this, EditKaryawan.class);
+                intent.putExtra("nik", newsList.get(position).getNik());
+                startActivity(intent);
+            }
+        });
         pDialog = new ProgressDialog(this);
-        pDialog.setCancelable(false);
+        pDialog.setCancelable(true);
         ShowKaryawan();
     }
 
@@ -76,7 +84,7 @@ public class karyawan extends AppCompatActivity {
 
         String tag_json_obj = "json_obj_req";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -97,6 +105,17 @@ public class karyawan extends AppCompatActivity {
                             object.setNama(jsonObject.getString("nama"));
                             object.setNik(jsonObject.getString("nik"));
                             object.setFoto(jsonObject.getString("foto"));
+                            object.setJabatan(jsonObject.getString("jabatan"));
+                            object.setStatus(jsonObject.getString("status"));
+                            object.setSertifikasi(jsonObject.getString("sertifikasi"));
+                            /*String sertifi = jsonObject.getString("sertifikasi");
+                            if (sertifi.equals("Y")){
+                                object.setSertifikasi("Sudah Sertifikasi");
+                            }else{
+                                object.setSertifikasi("Belum Sertifikasi");
+
+                            }*/
+
                             newsList.add(object);
                         }
                     }else {
@@ -117,7 +136,12 @@ public class karyawan extends AppCompatActivity {
             public void onErrorResponse(VolleyError error){
                 Log.e(String.valueOf(getApplication()), "Error : " + error.getMessage());
                 error.printStackTrace();
-                Toast.makeText(getApplicationContext(), error.getMessage() ,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), Config.Jaringan_error ,Toast.LENGTH_LONG).show();
+                hideDialog();
+                Intent i = new Intent(karyawan.this,AdminAkademikActivity.class);
+                startActivity(i);
+                finish();
+
             }
         }){
 
@@ -148,16 +172,5 @@ public class karyawan extends AppCompatActivity {
         startActivity(a);
         finish();
         super.onBackPressed();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }

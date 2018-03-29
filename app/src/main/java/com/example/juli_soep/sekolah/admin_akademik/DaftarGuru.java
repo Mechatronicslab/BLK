@@ -34,7 +34,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import volley.AppController;
-import volley.Config_URL;
+import volley.Config;
 
 public class DaftarGuru extends AppCompatActivity implements View.OnClickListener {
     private DatePickerDialog datePickerDialog;
@@ -143,7 +143,7 @@ public class DaftarGuru extends AppCompatActivity implements View.OnClickListene
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Config_URL.URL, new Response.Listener<String>() {
+                Config.URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Response: " + response.toString());
@@ -185,7 +185,7 @@ public class DaftarGuru extends AppCompatActivity implements View.OnClickListene
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put(Config_URL.TAG, "input_guru");
+                params.put(Config.TAG, "input_guru");
                 params.put("nama", nama);
                 params.put("nuptk", nuptk);
                 params.put("nik", nik);

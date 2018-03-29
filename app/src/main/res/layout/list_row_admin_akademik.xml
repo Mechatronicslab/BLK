@@ -3,55 +3,108 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="5dp">
 
 
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_marginTop="25dp"
-            android:id="@+id/nomornya"
-            android:layout_width="26dp"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textStyle="bold"/>
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/foto"
-            android:layout_width="65dp"
-            android:layout_marginTop="15dp"
-            android:layout_height="65dp"
-            android:src="@drawable/ic_user"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000"/>
+        android:orientation="vertical"
+        android:baselineAligned="false">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginLeft="15dp">
+            android:baselineAligned="false">
+
             <TextView
-                android:id="@+id/etNama"
+                android:id="@+id/nomornya"
+                android:layout_marginTop="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adi Permana"
-                android:textStyle="bold"
-                android:textSize="17dp"
-                android:layout_marginTop="25dp"/>
+                android:text="1"
+                android:paddingRight="10dp"
+                android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/etId"
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/foto"
+                android:layout_width="65dp"
+                android:layout_marginTop="25dp"
+                android:layout_height="65dp"
+                android:src="@drawable/profi"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:id="@+id/etNama"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Drs.Tarman Jupani"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:layout_marginTop="17dp"/>
+
+                <TextView
+                    android:id="@+id/etId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="italic"
+                    android:text="Nik/Nisn"/>
+
+                    <TextView
+                        android:id="@+id/etJabatan"
+                        android:textColor="@color/green"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Kepala Sekolah" />
+
+                    <TextView
+                        android:id="@+id/etStatus"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/dot_dark_screen2"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="GTY"/>
+                    <TextView
+                        android:id="@+id/etSertifikasi"
+                        android:textColor="@color/blue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Sudah Sertifikasi"/>
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textStyle="italic"
-                android:text="Nik/Nisn"/>
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="right">
+                <ImageView
+                    android:layout_marginRight="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_buton_edit"/>
+            </LinearLayout>
 
         </LinearLayout>
+
+
     </LinearLayout>
+
 
 </LinearLayout>
