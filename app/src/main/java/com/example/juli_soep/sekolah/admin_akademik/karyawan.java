@@ -77,7 +77,10 @@ public class karyawan extends AppCompatActivity {
         pDialog.setCancelable(true);
         ShowKaryawan();
     }
-    @OnClick (R.id.)
+    @OnClick (R.id.btnTambah)
+    void tambah(){
+
+    }
     private void ShowKaryawan(){
 
         pDialog.setMessage("Loading.....");
