@@ -50,12 +50,6 @@
         <activity android:name=".guru.GuruActivity" />
         <activity android:name=".siswa.ProfileSiswa" />
         <activity android:name=".guru.ProfileGuru" />
-        <activity android:name=".BAK.Bak" />
-        <activity android:name=".BAK.InputGajiPegawai" />
-        <activity android:name=".BAK.InputGajiSatpam" />
-        <activity android:name=".BAK.ShowGajiSatpam" />
-        <activity android:name=".BAK.ShowGajiStaff" />
-        <activity android:name=".BAK.DetailGajiSatpam" />
         <activity android:name=".admin_akademik.karyawan" />
         <activity
             android:name=".admin_akademik.DetailKaryawan"
@@ -64,7 +58,10 @@
             android:name=".admin_akademik.EditKaryawan"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".admin_akademik.FullScreenFoto" />
-        <activity android:name=".admin_akademik.TambahKaryawan"></activity>
+        <activity android:name=".admin_akademik.TambahKaryawan"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
     </application>
 
 </manifest>

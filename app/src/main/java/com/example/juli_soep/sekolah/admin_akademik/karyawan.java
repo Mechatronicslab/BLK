@@ -33,6 +33,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import volley.AppController;
 import volley.Config;
 
@@ -76,7 +77,7 @@ public class karyawan extends AppCompatActivity {
         pDialog.setCancelable(true);
         ShowKaryawan();
     }
-
+    @OnClick (R.id.)
     private void ShowKaryawan(){
 
         pDialog.setMessage("Loading.....");
