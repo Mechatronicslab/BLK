@@ -65,7 +65,8 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".admin_akademik.FullScreenFoto" />
         <activity android:name=".admin_akademik.TambahKaryawan" />
-        <activity android:name=".keuangan.InputGajih"></activity>
+        <activity android:name=".keuangan.InputGajih" />
+        <activity android:name=".keuangan.AppsKeuangan"></activity>
     </application>
 
 </manifest>
