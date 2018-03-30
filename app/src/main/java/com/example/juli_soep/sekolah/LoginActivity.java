@@ -22,7 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.admin_akademik.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.guru.GuruActivity;
 import com.example.juli_soep.sekolah.home.MainActivity;
-import com.example.juli_soep.sekolah.keuangan.AppsKeuangan;
+import com.example.juli_soep.sekolah.admin_keuangan.AppsKeuangan;
 import com.example.juli_soep.sekolah.siswa.SiswaActivity;
 
 import org.json.JSONException;

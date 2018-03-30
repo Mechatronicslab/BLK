@@ -1,9 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.juli_soep.sekolah.keuangan.InputGajih">
+    android:orientation="vertical"
+    android:background="@drawable/gradient_"
+    tools:context="com.example.juli_soep.sekolah.admin_keuangan.InputGajih">
 
-</android.support.constraint.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/HeaderBar"
+        app:theme="@style/HeaderBar"
+        app:popupTheme="@style/HeaderBar"
+        android:elevation="4dp"/>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nik"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:layout_marginLeft="35dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_"
+                    android:layout_marginLeft="4dp"/>
+                <Spinner
+                    android:theme="@style/mySpinnerItemStyle"
+                    android:id="@+id/spnProfile"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="-19dp"
+                    android:layout_marginTop="-5dp"
+                    android:popupBackground="@drawable/gradient_"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="-1dp"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama"
+                android:enabled="false"
+                android:inputType="textAutoComplete"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:text="-"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_pendidikan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pendidikan"
+                android:inputType="textAutoComplete"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:enabled="false"
+                android:text="-"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_jabatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jabatan"
+                android:inputType="textAutoComplete"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:text="-"
+                android:enabled="false"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_masa_kerja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masa Kerja (Tahun)"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_gapok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gajih Pokok"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_tun_jabatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tunjangan Jabatan"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_tun_lainnya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tunjangan Lainnya"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_jmlh_potongan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah Potongan"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:text="0"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_sisa_pinjaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sisa Pinjaman"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:text="0"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
+                android:id="@+id/ed_gajih_bersih"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gajih Bersih"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:text="0"
+                android:enabled="false"
+                android:textSize="18dp"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hitung"
+            android:textColor="#FFF"
+            android:background="@drawable/btn_rounded_white"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/buttonHitung"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan"
+            android:textColor="#FFF"
+            android:background="@drawable/btn_rounded_white"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/buttonSimpan"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+    </TableLayout>
+    </ScrollView>
+</LinearLayout>
