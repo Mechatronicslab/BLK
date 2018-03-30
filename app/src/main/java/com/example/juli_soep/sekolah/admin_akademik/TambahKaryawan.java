@@ -56,7 +56,7 @@ public class TambahKaryawan extends AppCompatActivity {
     private ProgressDialog pDialog;
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
-    RadioButton ItemKelamin ;
+    RadioButton ItemKelamin , itemSertifi ;
     int socketTimeout  = 30000; // 30 seconds. You can change it
     RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
@@ -83,13 +83,15 @@ public class TambahKaryawan extends AppCompatActivity {
     EditText txtJabatan ;
     @BindView(R.id.etStatus)
     EditText txtStatus ;
-    @BindView(R.id.etSertifikasi)
-    EditText txtSertifikasi ;
+    @BindView(R.id.radiogrupsertifikasi)
+    RadioGroup RadioSertifi ;
     @BindView(R.id.etAlamat)
     EditText txtAlamat ;
 
     @BindView(R.id.rLaki)
     RadioButton Laki ;
+    @BindView(R.id.rSudah)
+    RadioButton Sudah ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +101,7 @@ public class TambahKaryawan extends AppCompatActivity {
         pDialog.setCancelable(false);
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         Laki.setChecked(true);
+        Sudah.setChecked(true);
 
 
 
@@ -118,9 +121,13 @@ public class TambahKaryawan extends AppCompatActivity {
 
     @OnClick(R.id.btnSave)
     void BtnSave(){
-        String gender ;
-        int pilihan = RadioKelamin.getCheckedRadioButtonId();
-        ItemKelamin = (RadioButton)findViewById(pilihan);
+        String gender ,sertifi;
+        int pilihKelamin = RadioKelamin.getCheckedRadioButtonId();
+        ItemKelamin = (RadioButton)findViewById(pilihKelamin);
+
+        int pilihSertifi = RadioSertifi.getCheckedRadioButtonId();
+        itemSertifi = (RadioButton)findViewById(pilihSertifi);
+
         String nama = txtNama.getText().toString();
         String nik = txtNik.getText().toString();
         String nuptk = txtNuptk.getText().toString();
@@ -131,13 +138,19 @@ public class TambahKaryawan extends AppCompatActivity {
         String tmt = txtTmt.getText().toString();
         String jabatan = txtJabatan.getText().toString();
         String status = txtStatus.getText().toString();
-        String sertifikasi = txtSertifikasi.getText().toString();
+        String sertifikasi = itemSertifi.getText().toString();
         String alamat = txtAlamat.getText().toString();
-        if (kelamin.equals("Laki-Laki")){
+        if(kelamin.equals("Laki-Laki")){
             gender = "L";
         }else{
-            gender = "P";}
-        InsertKaryawan(nama,nik , nuptk ,tmptLahir,tglLahir,gender,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat);
+            gender = "P";
+        }
+        if(sertifikasi.equals("Sudah")){
+            sertifi ="Y";
+        }else{
+            sertifi ="N";
+        }
+        InsertKaryawan(nama,nik , nuptk ,tmptLahir,tglLahir,gender,pendTerakhir,tmt,jabatan,status,sertifi,alamat);
     }
     @OnClick(R.id.pickDate)
     void pickDate(){

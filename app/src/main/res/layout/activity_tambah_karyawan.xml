@@ -127,7 +127,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="horizontal">
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -300,15 +299,15 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:layout_marginTop="25dp">
-
-                    <EditText
+                    <TextView
                         android:id="@+id/etSertifikasi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -318,7 +317,38 @@
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
                         tools:ignore="HardcodedText,RtlHardcoded" />
+
+                    <RadioGroup
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:id="@+id/radiogrupsertifikasi"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp">
+
+                        <RadioButton
+                            android:id="@+id/rSudah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Sudah "
+                            android:textColor="@color/blackText"/>
+
+                        <RadioButton
+                            android:layout_marginLeft="50dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Belum "
+                            android:textColor="@color/blackText"
+                            android:backgroundTint="@color/red"/>
+
+                    </RadioGroup>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+
                 </android.support.design.widget.TextInputLayout>
+
             </LinearLayout>
 
             <LinearLayout

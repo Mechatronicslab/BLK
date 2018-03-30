@@ -1,8 +1,10 @@
 package com.example.juli_soep.sekolah.admin_akademik;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +36,8 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemLongClick;
+import butterknife.OnLongClick;
 import volley.AppController;
 import volley.Config;
 
@@ -41,18 +45,18 @@ public class karyawan extends AppCompatActivity {
     List<DataKaryawan> newsList = new ArrayList<DataKaryawan>();
 
     private static final String TAG = karyawan.class.getSimpleName();
-
+    boolean longclick;
     AdapterKaryawan adapter;
     Handler handler;
     Runnable runnable;
     private ProgressDialog pDialog;
 
-    int socketTimeout  = 30000; // 30 seconds. You can change it
+    int socketTimeout = 30000; // 30 seconds. You can change it
     RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
     @BindView(R.id.list_news)
-    ListView list ;
+    ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +77,41 @@ public class karyawan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),"klik lama",Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });*/
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
         ShowKaryawan();
     }
+
+    @OnItemLongClick(R.id.list_news)
+    boolean OnItemLongClick(final int position) {
+        //Toast.makeText(getApplicationContext(), "klik lama", Toast.LENGTH_LONG).show();
+        AlertDialog.Builder adb = new AlertDialog.Builder(karyawan.this);
+        adb.setTitle("My alert Dialogue \n");
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                //some code
+
+            } });
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+            } });
+        adb.show();
+
+        return false;
+    }
+
     @OnClick (R.id.btnTambah)
     void btnTambah(){
         Intent i = new Intent(karyawan.this, TambahKaryawan.class);
@@ -174,6 +209,7 @@ public class karyawan extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
+
         Intent a = new Intent(karyawan.this, AdminAkademikActivity.class);
         startActivity(a);
         finish();

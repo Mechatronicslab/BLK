@@ -51,6 +51,7 @@
         <activity android:name=".siswa.ProfileSiswa" />
         <activity android:name=".guru.ProfileGuru" />
         <activity android:name=".admin_akademik.karyawan" />
+
         <activity
             android:name=".admin_akademik.DetailKaryawan"
             android:windowSoftInputMode="stateAlwaysHidden" />

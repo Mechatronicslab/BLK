@@ -82,7 +82,7 @@ public class EditKaryawan extends AppCompatActivity {
     private ProgressDialog pDialog;
     String id ,foto ,nama ,nik , nuptk ,tmptLahir,tglLahir,kelamin,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat;
     String dataObject ;
-    RadioButton ItemKelamin ;
+    RadioButton ItemKelamin,ItemSertifi ;
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
     private Bitmap bitmap;
@@ -113,8 +113,8 @@ public class EditKaryawan extends AppCompatActivity {
     EditText txtJabatan ;
     @BindView(R.id.etStatus)
     EditText txtStatus ;
-    @BindView(R.id.etSertifikasi)
-    EditText txtSertifikasi ;
+    @BindView(R.id.radiogrupsertifikasi)
+    RadioGroup RadioSertifi ;
     @BindView(R.id.etAlamat)
     EditText txtAlamat ;
 
@@ -122,6 +122,11 @@ public class EditKaryawan extends AppCompatActivity {
     RadioButton perempuan;
     @BindView(R.id.rLaki)
     RadioButton laki;
+
+    @BindView(R.id.rSudah)
+    RadioButton Sudah ;
+    @BindView(R.id.rBelum)
+    RadioButton Belum ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,9 +178,13 @@ public class EditKaryawan extends AppCompatActivity {
 
     @OnClick(R.id.btnSave)
     void BtnSave(){
-        String gender ;
+        String gender,sertifi ;
         int pilihan = RadioKelamin.getCheckedRadioButtonId();
         ItemKelamin = (RadioButton)findViewById(pilihan);
+
+        int pilihSertifi = RadioSertifi.getCheckedRadioButtonId();
+        ItemSertifi = (RadioButton)findViewById(pilihSertifi);
+
         String nama = txtNama.getText().toString();
         String nik = txtNik.getText().toString();
         String nuptk = txtNuptk.getText().toString();
@@ -186,13 +195,19 @@ public class EditKaryawan extends AppCompatActivity {
         String tmt = txtTmt.getText().toString();
         String jabatan = txtJabatan.getText().toString();
         String status = txtStatus.getText().toString();
-        String sertifikasi = txtSertifikasi.getText().toString();
+        String sertifikasi = ItemSertifi.getText().toString();
         String alamat = txtAlamat.getText().toString();
         if (kelamin.equals("Laki-Laki")){
             gender = "L";
         }else{
-            gender = "P";}
-        UpdateKaryawan(nama,nik , nuptk ,tmptLahir,tglLahir,kelamin,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat);
+            gender = "P";
+        }
+        if(sertifikasi.equals("Sudah")){
+            sertifi ="Y";
+        }else{
+            sertifi ="N";
+        }
+        UpdateKaryawan(nama,nik , nuptk ,tmptLahir,tglLahir,gender,pendTerakhir,tmt,jabatan,status,sertifi,alamat);
         //(bitmap,nama,nik , nuptk ,tmptLahir,tglLahir,kelamin,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat);
     }
 
@@ -267,7 +282,11 @@ public class EditKaryawan extends AppCompatActivity {
                         txtTmt.setText(tmt);
                         txtJabatan.setText(jabatan);
                         txtStatus.setText(status);
-                        txtSertifikasi.setText(sertifikasi);
+                        if(sertifikasi.equals("Y")){
+                            Sudah.setChecked(true);
+                        }else{
+                            Belum.setChecked(true);
+                        }
                         txtAlamat.setText(alamat);
                     }else {
                         String error_msg = jObj.getString("error_msg");
