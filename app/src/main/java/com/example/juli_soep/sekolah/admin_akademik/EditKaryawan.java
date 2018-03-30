@@ -1,6 +1,7 @@
 package com.example.juli_soep.sekolah.admin_akademik;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,10 +25,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,7 +59,10 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -69,11 +76,15 @@ import volley.VolleyMultipartRequest;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 import static com.example.juli_soep.sekolah.R.id.imageView;
+import static com.example.juli_soep.sekolah.R.id.rLaki;
 
 public class EditKaryawan extends AppCompatActivity {
     private ProgressDialog pDialog;
     String id ,foto ,nama ,nik , nuptk ,tmptLahir,tglLahir,kelamin,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat;
     String dataObject ;
+    RadioButton ItemKelamin ;
+    private DatePickerDialog datePickerDialog;
+    private SimpleDateFormat dateFormatter;
     private Bitmap bitmap;
     String Nik ;
     int socketTimeout  = 30000; // 30 seconds. You can change it
@@ -92,8 +103,8 @@ public class EditKaryawan extends AppCompatActivity {
     EditText txtTmptLahir ;
     @BindView(R.id.etTglLahir)
     EditText txtTglLahir ;
-    @BindView(R.id.etKelamin)
-    EditText txtKelamin ;
+    @BindView(R.id.radiogrupKelamin)
+    RadioGroup RadioKelamin ;
     @BindView(R.id.etPendTerakhir)
     EditText txtPendTerakhir ;
     @BindView(R.id.etTMT)
@@ -106,6 +117,12 @@ public class EditKaryawan extends AppCompatActivity {
     EditText txtSertifikasi ;
     @BindView(R.id.etAlamat)
     EditText txtAlamat ;
+
+    @BindView(R.id.rPerempuan)
+    RadioButton perempuan;
+    @BindView(R.id.rLaki)
+    RadioButton laki;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,16 +131,7 @@ public class EditKaryawan extends AppCompatActivity {
         Nik = getIntent().getExtras().getString("nik");
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    Uri.parse("package:" + getPackageName()));
-            finish();
-            startActivity(intent);
-            return;
-        }
-
+        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         KaryawanGetById();
     }
 
@@ -165,20 +173,32 @@ public class EditKaryawan extends AppCompatActivity {
 
     @OnClick(R.id.btnSave)
     void BtnSave(){
+        String gender ;
+        int pilihan = RadioKelamin.getCheckedRadioButtonId();
+        ItemKelamin = (RadioButton)findViewById(pilihan);
         String nama = txtNama.getText().toString();
         String nik = txtNik.getText().toString();
         String nuptk = txtNuptk.getText().toString();
         String tmptLahir = txtTmptLahir.getText().toString();
         String tglLahir = txtTglLahir.getText().toString();
-        String kelamin = txtKelamin.getText().toString();
+        String kelamin = ItemKelamin.getText().toString();
         String pendTerakhir = txtPendTerakhir.getText().toString();
         String tmt = txtTmt.getText().toString();
         String jabatan = txtJabatan.getText().toString();
         String status = txtStatus.getText().toString();
         String sertifikasi = txtSertifikasi.getText().toString();
         String alamat = txtAlamat.getText().toString();
+        if (kelamin.equals("Laki-Laki")){
+            gender = "L";
+        }else{
+            gender = "P";}
         UpdateKaryawan(nama,nik , nuptk ,tmptLahir,tglLahir,kelamin,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat);
         //(bitmap,nama,nik , nuptk ,tmptLahir,tglLahir,kelamin,pendTerakhir,tmt,jabatan,status,sertifikasi,alamat);
+    }
+
+    @OnClick(R.id.pickDate)
+    void pickDate(){
+        showDateDialog();
     }
 
     private void KaryawanGetById() {
@@ -238,7 +258,11 @@ public class EditKaryawan extends AppCompatActivity {
                         txtNuptk.setText(nuptk);
                         txtTmptLahir.setText(tmptLahir);
                         txtTglLahir.setText(tglLahir);
-                        txtKelamin.setText(kelamin);
+                        if(kelamin.equals("L")){
+                            laki.setChecked(true);
+                        }else{
+                            perempuan.setChecked(true);
+                        }
                         txtPendTerakhir.setText(pendTerakhir);
                         txtTmt.setText(tmt);
                         txtJabatan.setText(jabatan);
@@ -474,6 +498,23 @@ public class EditKaryawan extends AppCompatActivity {
         Intent i = new Intent(EditKaryawan.this, karyawan.class);
         startActivity(i);
         finish();
+    }
+
+    private void showDateDialog(){
+        Calendar newCalendar = Calendar.getInstance();
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, month, dayOfMonth);
+
+                /**
+                 * Update TextView dengan tanggal yang kita pilih
+                 */
+                txtTglLahir.setText(dateFormatter.format(newDate.getTime()));
+            }
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
     }
 
 }

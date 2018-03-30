@@ -78,8 +78,10 @@ public class karyawan extends AppCompatActivity {
         ShowKaryawan();
     }
     @OnClick (R.id.btnTambah)
-    void tambah(){
-
+    void btnTambah(){
+        Intent i = new Intent(karyawan.this, TambahKaryawan.class);
+        startActivity(i);
+        finish();
     }
     private void ShowKaryawan(){
 

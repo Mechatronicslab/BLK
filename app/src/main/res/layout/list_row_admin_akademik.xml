@@ -46,7 +46,7 @@
 
                 <TextView
                     android:id="@+id/etNama"
-                    android:layout_width="170dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="Drs.Tarman Jupani"
                     android:textStyle="bold"

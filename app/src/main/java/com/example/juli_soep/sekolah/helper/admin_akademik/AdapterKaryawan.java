@@ -83,6 +83,7 @@ public class AdapterKaryawan extends BaseAdapter{
         status.setText(news.getStatus());
 
         if(news.getSertifikasi().equals("Y")){
+            sertifikasi.setTextColor(Color.BLUE);
             sertifikasi.setText("Sudah Sertifikasi");
         }else{
             sertifikasi.setTextColor(Color.RED);
