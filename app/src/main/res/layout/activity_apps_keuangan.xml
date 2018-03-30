@@ -12,31 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="198dp">
-
-        </android.support.v4.view.ViewPager>
-
-        <LinearLayout
-            android:id="@+id/sliderDots"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-20dp"></LinearLayout>
-
+            android:layout_height="200dp"
+            android:layout_gravity="top"/>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/secondLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:background="@color/green"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
         android:layout_below="@+id/firstLayout">
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,9 +36,12 @@
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:textStyle="bold"/>
 
-    </LinearLayout>
+    </RelativeLayout>
+
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -73,7 +68,7 @@
                     android:layout_margin="10dp">
 
                     <LinearLayout
-                        android:id="@+id/btnDaftarGuru"
+                        android:id="@+id/btnInputdataGaji"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -91,20 +86,20 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
-                            android:text="@string/daftar_karyawan"
+                            android:text="Input Data Gajih"
                             android:id="@+id/textView" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/green"
+                            android:background="@color/colorPrimary"
                             android:layout_margin="10dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menampilkan Data Karyawan"
+                            android:text="Input Data Gajih Karyawan"
                             android:padding="5dp"
                             android:textColor="@color/blackText"
                             android:id="@+id/textView2" />
@@ -136,19 +131,19 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
-                            android:text="@string/daftar_siswa"/>
+                            android:text="Data Gajih"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/green"
+                            android:background="@color/colorPrimary"
                             android:layout_margin="10dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menampilkan Data Siswa"
+                            android:text="Menampilkan Data Gajih Siswa"
                             android:padding="5dp"
                             android:textColor="@color/blackText"/>
 
@@ -188,19 +183,19 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
-                            android:text="@string/input_mapel"/>
+                            android:text="Input SPP"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/green"
+                            android:background="@color/colorPrimary"
                             android:layout_margin="10dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menampilkan Mata Pelajaran"
+                            android:text="Menginput Data SPP Siswa"
                             android:padding="5dp"
                             android:textColor="@color/blackText"/>
 
@@ -232,60 +227,68 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
-                            android:text="@string/input_jadwal"/>
+                            android:text="Data SPP"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/green"
+                            android:background="@color/colorPrimary"
                             android:layout_margin="10dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menampilkan Jadwal Mata Pelajaran"
+                            android:text="Menampilkan Data SPP"
                             android:padding="5dp"
                             android:textColor="@color/blackText"/>
 
                     </LinearLayout>
-
                 </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="right"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/ic_logout"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LogOut"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginLeft="15dp"/>
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/firstLayout"
+        android:layout_gravity="right"
+        android:layout_marginTop="9dp"
+        android:gravity="right"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/ic_logout"
+                android:gravity="right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Log Out"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

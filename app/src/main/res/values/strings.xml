@@ -62,4 +62,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--array to spiner -->
+    <string-array name="Test">
+        <item>-This Is Test-</item>
+        <item>This Is Test</item>
+        <item>This Is Test</item>
+    </string-array>
 </resources>

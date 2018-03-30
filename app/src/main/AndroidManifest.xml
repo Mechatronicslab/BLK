@@ -51,7 +51,6 @@
         <activity android:name=".siswa.ProfileSiswa" />
         <activity android:name=".guru.ProfileGuru" />
         <activity android:name=".admin_akademik.karyawan" />
-
         <activity
             android:name=".admin_akademik.DetailKaryawan"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -59,10 +58,7 @@
             android:name=".admin_akademik.EditKaryawan"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".admin_akademik.FullScreenFoto" />
-        <activity android:name=".admin_akademik.TambahKaryawan"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".keuangan.InputGajih" />
-        <activity android:name=".keuangan.AppsKeuangan"></activity>
-    </application>
+        <activity android:name=".admin_akademik.TambahKaryawan" />
+          </application>
 
 </manifest>
