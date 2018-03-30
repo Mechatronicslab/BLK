@@ -63,10 +63,40 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--array to spiner -->
-    <string-array name="Test">
-        <item>-This Is Test-</item>
-        <item>This Is Test</item>
-        <item>This Is Test</item>
+    <string-array name="SpinnerJabatan">
+        <item>Kepala Sekolah</item>
+        <item>Wakil Kepala Sekolah</item>
+        <item>Waka Kurikulum</item>
+        <item>Waka Kesiswaan</item>
+        <item>Bendahara Sekolah</item>
+        <item>Guru BK</item>
+        <item>Guru</item>
+        <item>Guru/Wali Kelas</item>
+        <item>Guru/Operator</item>
+        <item>Guru Matematika</item>
+        <item>Guru Bhs Inggris</item>
+        <item>Guru Bhs Indonesia</item>
+        <item>Guru Fisika</item>
+        <item>Guru Kimia</item>
+        <item>Guru Teknik</item>
+        <item>Guru Penjaskes</item>
+        <item>Toolman/ADM</item>
+        <item>Pelatih Bola</item>
+        <item>Kaleb</item>
+        <item>Kabeng Listrik</item>
+        <item>Kabeng Otomatif</item>
+        <item>Kajur Listrik</item>
+        <item>Kajur TSM</item>
+        <item>Kajur TKJ</item>
+        <item>Kajur TKR</item>
+        <item>Kajur MM</item>
+        <item>Kepala TU</item>
+        <item>Staff Tu</item>
+        <item>Security Tu</item>
+        <item>Kabeng Otomatif</item>
+        <item>Teknisi Bengkel TSM</item>
+        <item>Kalab TKJ &amp; MM</item>
+        <item>Perawat UKS</item>
     </string-array>
+
 </resources>
