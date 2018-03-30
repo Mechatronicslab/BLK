@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,8 +61,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -109,24 +113,26 @@ public class EditKaryawan extends AppCompatActivity {
     EditText txtPendTerakhir ;
     @BindView(R.id.etTMT)
     EditText txtTmt ;
-    @BindView(R.id.etJabatan)
-    EditText txtJabatan ;
     @BindView(R.id.etStatus)
     EditText txtStatus ;
     @BindView(R.id.radiogrupsertifikasi)
     RadioGroup RadioSertifi ;
     @BindView(R.id.etAlamat)
     EditText txtAlamat ;
-
     @BindView(R.id.rPerempuan)
     RadioButton perempuan;
     @BindView(R.id.rLaki)
     RadioButton laki;
-
     @BindView(R.id.rSudah)
     RadioButton Sudah ;
     @BindView(R.id.rBelum)
     RadioButton Belum ;
+
+    @BindView(R.id.spinnerJabatan)
+    Spinner spinnerJabatan;
+    private ArrayAdapter<CharSequence> adapter;
+    private List<CharSequence> items;
+    private String[] strings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +143,11 @@ public class EditKaryawan extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        strings = getResources().getStringArray(R.array.SpinnerJabatan);
+        items = new ArrayList<CharSequence>(Arrays.asList(strings));
+        adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerJabatan.setAdapter(adapter);
         KaryawanGetById();
     }
 
@@ -193,7 +204,7 @@ public class EditKaryawan extends AppCompatActivity {
         String kelamin = ItemKelamin.getText().toString();
         String pendTerakhir = txtPendTerakhir.getText().toString();
         String tmt = txtTmt.getText().toString();
-        String jabatan = txtJabatan.getText().toString();
+        String jabatan = spinnerJabatan.getSelectedItem().toString();
         String status = txtStatus.getText().toString();
         String sertifikasi = ItemSertifi.getText().toString();
         String alamat = txtAlamat.getText().toString();
@@ -280,7 +291,7 @@ public class EditKaryawan extends AppCompatActivity {
                         }
                         txtPendTerakhir.setText(pendTerakhir);
                         txtTmt.setText(tmt);
-                        txtJabatan.setText(jabatan);
+                        spinnerJabatan.setSelection(adapter.getPosition(jabatan));
                         txtStatus.setText(status);
                         if(sertifikasi.equals("Y")){
                             Sudah.setChecked(true);

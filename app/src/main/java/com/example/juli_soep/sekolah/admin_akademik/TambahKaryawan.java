@@ -14,11 +14,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.juli_soep.sekolah.R;
+import com.example.juli_soep.sekolah.helper.admin_akademik.LinkedHashMapAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,8 +44,12 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -51,7 +59,6 @@ import butterknife.OnClick;
 import volley.AppController;
 import volley.Config;
 import volley.VolleyMultipartRequest;
-
 public class TambahKaryawan extends AppCompatActivity {
     private ProgressDialog pDialog;
     private DatePickerDialog datePickerDialog;
@@ -64,9 +71,9 @@ public class TambahKaryawan extends AppCompatActivity {
     @BindView(R.id.foto)
     ImageView imgFoto ;
     @BindView(R.id.etNama)
-    TextView txtNama ;
+    EditText txtNama ;
     @BindView(R.id.etNik)
-    TextView txtNik ;
+    EditText txtNik ;
     @BindView(R.id.etNuptk)
     EditText txtNuptk ;
     @BindView(R.id.etTmptLahir)
@@ -79,8 +86,6 @@ public class TambahKaryawan extends AppCompatActivity {
     EditText txtPendTerakhir ;
     @BindView(R.id.etTMT)
     EditText txtTmt ;
-    @BindView(R.id.etJabatan)
-    EditText txtJabatan ;
     @BindView(R.id.etStatus)
     EditText txtStatus ;
     @BindView(R.id.radiogrupsertifikasi)
@@ -92,6 +97,19 @@ public class TambahKaryawan extends AppCompatActivity {
     RadioButton Laki ;
     @BindView(R.id.rSudah)
     RadioButton Sudah ;
+
+    @BindView(R.id.spinnerJabatan)
+    Spinner spinnerJabatan;
+    private ArrayAdapter<CharSequence> adapter;
+    private List<CharSequence> items;
+    private String[] strings;
+
+    private LinkedHashMapAdapter<String, String> adapter1;
+    private LinkedHashMap<String, String> mapData;
+
+    private AutoCompleteTextView autocomplete;
+    private LinkedHashMapAdapter<String, String> acadapter;
+    private int mAcFlags;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,9 +121,17 @@ public class TambahKaryawan extends AppCompatActivity {
         Laki.setChecked(true);
         Sudah.setChecked(true);
 
+        strings = getResources().getStringArray(R.array.SpinnerJabatan);
+        items = new ArrayList<CharSequence>(Arrays.asList(strings));
+        adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerJabatan.setAdapter(adapter);
+
+
 
 
     }
+
 
 
     @OnClick(R.id.foto)
@@ -136,7 +162,7 @@ public class TambahKaryawan extends AppCompatActivity {
         String kelamin = ItemKelamin.getText().toString();
         String pendTerakhir = txtPendTerakhir.getText().toString();
         String tmt = txtTmt.getText().toString();
-        String jabatan = txtJabatan.getText().toString();
+        String jabatan = spinnerJabatan.getSelectedItem().toString();
         String status = txtStatus.getText().toString();
         String sertifikasi = itemSertifi.getText().toString();
         String alamat = txtAlamat.getText().toString();
@@ -150,7 +176,14 @@ public class TambahKaryawan extends AppCompatActivity {
         }else{
             sertifi ="N";
         }
-        InsertKaryawan(nama,nik , nuptk ,tmptLahir,tglLahir,gender,pendTerakhir,tmt,jabatan,status,sertifi,alamat);
+
+        if(!nama.isEmpty()&&!nik.isEmpty()&&!nuptk.isEmpty()&&!tmptLahir.isEmpty()&&!tglLahir.isEmpty()&&!kelamin.isEmpty()&&!pendTerakhir.isEmpty()
+                &&!tmt.isEmpty()&&!jabatan.isEmpty()&&!status.isEmpty()&&!sertifikasi.isEmpty()&&!alamat.isEmpty()){
+            InsertKaryawan(nama,nik,nuptk,tmptLahir,tglLahir,gender,pendTerakhir,tmt,jabatan,status,sertifi,alamat);
+        }else{
+            Toast.makeText(getApplicationContext(),"Pastikan Semua Data Sudah Terisi",Toast.LENGTH_LONG).show();
+        }
+
     }
     @OnClick(R.id.pickDate)
     void pickDate(){

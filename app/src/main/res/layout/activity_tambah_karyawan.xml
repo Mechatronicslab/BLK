@@ -264,7 +264,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp">
-                    <EditText
+                    <AutoCompleteTextView
+                        android:id="@+id/autocomplete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/section_options"
+                        />
+                    <TextView
+                        android:enabled="false"
                         android:id="@+id/etJabatan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -274,6 +281,14 @@
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
                         tools:ignore="HardcodedText,RtlHardcoded" />
+                    <Spinner
+                        android:id="@+id/spinnerJabatan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="@color/green"
+                        android:paddingLeft="15dp"
+                        android:fontFamily="sans-serif-condensed"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -330,14 +345,14 @@
                             android:id="@+id/rSudah"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Sudah "
+                            android:text="Sudah"
                             android:textColor="@color/blackText"/>
 
                         <RadioButton
                             android:layout_marginLeft="50dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Belum "
+                            android:text="Belum"
                             android:textColor="@color/blackText"
                             android:backgroundTint="@color/red"/>
 
