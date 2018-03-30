@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,12 +37,17 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 import butterknife.OnItemLongClick;
 import butterknife.OnLongClick;
 import volley.AppController;
 import volley.Config;
 
-public class karyawan extends AppCompatActivity {
+public class karyawan extends AppCompatActivity  {
+    int previousPosition=-1;
+    int count=0;
+    long previousMil=0;
+    String nik ;
     List<DataKaryawan> newsList = new ArrayList<DataKaryawan>();
 
     private static final String TAG = karyawan.class.getSimpleName();
@@ -66,39 +72,41 @@ public class karyawan extends AppCompatActivity {
         newsList.clear();
         adapter = new AdapterKaryawan(karyawan.this, newsList);
         list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // TODO Auto-generated method stub
-                Intent intent = new Intent(karyawan.this, EditKaryawan.class);
-                intent.putExtra("nik", newsList.get(position).getNik());
-                startActivity(intent);
-            }
-        });
-
-        /*list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"klik lama",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });*/
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
         ShowKaryawan();
     }
 
+    @OnItemClick(R.id.list_news)
+    void onItemClick(int position) {
+        if(previousPosition==position){
+            count++;
+            if(count==2 && System.currentTimeMillis()-previousMil<=1000)
+            {
+                Intent intent = new Intent(karyawan.this, EditKaryawan.class);
+                intent.putExtra("nik", newsList.get(position).getNik());
+                startActivity(intent);
+            }
+        }else
+        {
+            previousPosition = position;
+            count = 1;
+            previousMil = System.currentTimeMillis();
+        }
+    }
+
     @OnItemLongClick(R.id.list_news)
     boolean OnItemLongClick(final int position) {
-        //Toast.makeText(getApplicationContext(), "klik lama", Toast.LENGTH_LONG).show();
         AlertDialog.Builder adb = new AlertDialog.Builder(karyawan.this);
-        adb.setTitle("My alert Dialogue \n");
+        adb.setCancelable(false);
+        ImageView image = new ImageView(karyawan.this);
+        image.setImageResource(R.drawable.quantum_ic_stop_grey600_36);
+        adb.setTitle("Apakah Anda Yakin Ingin Menghapus Data ini? \n");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-
-                //some code
+                nik = newsList.get(position).getNik();
+                DeleteKaryawan(nik);
 
             } });
         adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -107,6 +115,7 @@ public class karyawan extends AppCompatActivity {
                 dialog.dismiss();
 
             } });
+        adb.setView(image);
         adb.show();
 
         return false;
@@ -194,6 +203,62 @@ public class karyawan extends AppCompatActivity {
             }
         };
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+    }
+
+    private void DeleteKaryawan(final String nik){
+
+        pDialog.setMessage("Loading.....");
+        showDialog();
+
+        //String tag_json_obj = "json_obj_req";
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                Config.URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e("Response: ", response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    if(!error){
+                        String suksess = jObj.getString("message");
+                        Toast.makeText(getApplicationContext(),suksess,Toast.LENGTH_LONG).show();
+                        finish();
+                        startActivity(getIntent());
+                    }else {
+                        String error_msg = jObj.getString("error");
+                        Toast.makeText(getApplicationContext(), error_msg,
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
+
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Log.e(String.valueOf(getApplication()), "Error : " + error.getMessage());
+                error.printStackTrace();
+                Toast.makeText(getApplicationContext(), Config.Jaringan_error ,Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tag","DeleteKaryawan");
+                params.put("nik",nik);
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(strReq);
     }
 
     private void hideDialog() {

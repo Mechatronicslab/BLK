@@ -292,6 +292,7 @@ public class EditKaryawan extends AppCompatActivity {
                         String error_msg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(), error_msg,
                                 Toast.LENGTH_LONG).show();
+
                     }
 
                 } catch (JSONException e) {
@@ -372,7 +373,7 @@ public class EditKaryawan extends AppCompatActivity {
                 Log.e("Update Error : " , error.getMessage());
                 Toast.makeText(getApplicationContext(),
                         error.getMessage(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "Please Check Your Network Connection", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), Config.Jaringan_error, Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }){
