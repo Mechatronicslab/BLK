@@ -11,6 +11,8 @@
     tools:context="com.example.juli_soep.sekolah.admin_akademik.karyawan">
     <ListView
         android:longClickable="true"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
         android:id="@+id/list_news"
         android:layout_width="fill_parent"
         android:layout_height="0dp"

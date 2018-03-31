@@ -72,6 +72,7 @@ public class karyawan extends AppCompatActivity  {
         newsList.clear();
         adapter = new AdapterKaryawan(karyawan.this, newsList);
         list.setAdapter(adapter);
+        list.clearFocus();
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
@@ -82,18 +83,18 @@ public class karyawan extends AppCompatActivity  {
     void onItemClick(int position) {
         if(previousPosition==position){
             count++;
-            if(count==2 && System.currentTimeMillis()-previousMil<=1000)
+            if(count==2)
             {
                 Intent intent = new Intent(karyawan.this, EditKaryawan.class);
                 intent.putExtra("nik", newsList.get(position).getNik());
                 startActivity(intent);
             }
-        }else
-        {
-            previousPosition = position;
+        }else{
+            previousPosition=position;
             count = 1;
             previousMil = System.currentTimeMillis();
         }
+
     }
 
     @OnItemLongClick(R.id.list_news)

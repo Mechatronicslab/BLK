@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -112,9 +113,7 @@ public class EditKaryawan extends AppCompatActivity {
     @BindView(R.id.etPendTerakhir)
     EditText txtPendTerakhir ;
     @BindView(R.id.etTMT)
-    EditText txtTmt ;
-    @BindView(R.id.etStatus)
-    EditText txtStatus ;
+    AutoCompleteTextView txtTmt ;
     @BindView(R.id.radiogrupsertifikasi)
     RadioGroup RadioSertifi ;
     @BindView(R.id.etAlamat)
@@ -130,9 +129,11 @@ public class EditKaryawan extends AppCompatActivity {
 
     @BindView(R.id.spinnerJabatan)
     Spinner spinnerJabatan;
-    private ArrayAdapter<CharSequence> adapter;
-    private List<CharSequence> items;
-    private String[] strings;
+    @BindView(R.id.spinnerStatus)
+    Spinner spinnerStatus;
+    private ArrayAdapter<CharSequence> adapterJabatan,adapterStatus;
+    private List<CharSequence> itemJabatan,itemStatus;
+    private String[] stringJabatan,stringStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,11 +144,24 @@ public class EditKaryawan extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
-        strings = getResources().getStringArray(R.array.SpinnerJabatan);
-        items = new ArrayList<CharSequence>(Arrays.asList(strings));
-        adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerJabatan.setAdapter(adapter);
+        stringJabatan = getResources().getStringArray(R.array.StringSpinJabatan);
+        itemJabatan = new ArrayList<CharSequence>(Arrays.asList(stringJabatan));
+        adapterJabatan = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, itemJabatan);
+        adapterJabatan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerJabatan.setAdapter(adapterJabatan);
+
+        stringStatus = getResources().getStringArray(R.array.StringSpinStatus);
+        itemStatus = new ArrayList<CharSequence>(Arrays.asList(stringStatus));
+        adapterStatus = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, itemStatus);
+        adapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerStatus.setAdapter(adapterStatus);
+
+
+        String[] StringTahun = getResources().getStringArray(R.array.StringTahun);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,StringTahun);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        txtTmt.setAdapter(adapter);
+
         KaryawanGetById();
     }
 
@@ -205,7 +219,7 @@ public class EditKaryawan extends AppCompatActivity {
         String pendTerakhir = txtPendTerakhir.getText().toString();
         String tmt = txtTmt.getText().toString();
         String jabatan = spinnerJabatan.getSelectedItem().toString();
-        String status = txtStatus.getText().toString();
+        String status = spinnerStatus.getSelectedItem().toString();
         String sertifikasi = ItemSertifi.getText().toString();
         String alamat = txtAlamat.getText().toString();
         if (kelamin.equals("Laki-Laki")){
@@ -291,8 +305,8 @@ public class EditKaryawan extends AppCompatActivity {
                         }
                         txtPendTerakhir.setText(pendTerakhir);
                         txtTmt.setText(tmt);
-                        spinnerJabatan.setSelection(adapter.getPosition(jabatan));
-                        txtStatus.setText(status);
+                        spinnerJabatan.setSelection(adapterJabatan.getPosition(jabatan));
+                        spinnerStatus.setSelection(adapterStatus.getPosition(status));
                         if(sertifikasi.equals("Y")){
                             Sudah.setChecked(true);
                         }else{

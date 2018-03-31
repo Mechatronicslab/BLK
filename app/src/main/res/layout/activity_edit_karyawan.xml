@@ -55,6 +55,7 @@
             android:layout_marginLeft="15dp">
             <EditText
                 android:id="@+id/etNama"
+                android:inputType="textPersonName|textAutoComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama"
@@ -64,6 +65,7 @@
 
             <EditText
                 android:id="@+id/etNik"
+                android:inputType="number|textAutoComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -96,7 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="NUPTK"
-                        android:inputType="textAutoComplete"
+                        android:inputType="number|textAutoComplete"
                         android:textColor="@color/green"
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
@@ -137,6 +139,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="25dp">
                     <EditText
+                        android:focusable="false"
                         android:enabled="false"
                         android:id="@+id/etTglLahir"
                         android:layout_width="match_parent"
@@ -150,6 +153,7 @@
                         tools:ignore="HardcodedText,RtlHardcoded" />
                 </android.support.design.widget.TextInputLayout>
                 <Button
+                    android:focusable="true"
                     android:id="@+id/pickDate"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -242,16 +246,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp">
-                    <EditText
+                    <AutoCompleteTextView
                         android:id="@+id/etTMT"
+                        android:nextFocusDown="@id/spinnerJabatan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Mulai Tugas"
-                        android:inputType="textAutoComplete"
+                        android:inputType="number|textAutoCorrect|textAutoComplete"
                         android:textColor="@color/green"
+                        android:imeOptions="actionNext"
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
-                        android:text="-"
                         tools:ignore="HardcodedText,RtlHardcoded" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -265,16 +270,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp">
                     <TextView
+                        android:enabled="false"
                         android:id="@+id/etJabatan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Jabatan"
+                        android:inputType="textAutoComplete"
                         android:textColor="@color/green"
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
-                        android:text="-"
                         tools:ignore="HardcodedText,RtlHardcoded" />
                     <Spinner
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:id="@+id/spinnerJabatan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -284,6 +292,10 @@
                         android:fontFamily="sans-serif-condensed"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/green"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -293,7 +305,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp">
-                    <EditText
+                    <TextView
+                        android:enabled="false"
                         android:id="@+id/etStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -302,14 +315,26 @@
                         android:textColor="@color/green"
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
-                        android:text="-"
                         tools:ignore="HardcodedText,RtlHardcoded" />
+                    <Spinner
+                        android:id="@+id/spinnerStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="@color/green"
+                        android:paddingLeft="15dp"
+                        android:fontFamily="sans-serif-condensed"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/green"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -343,8 +368,8 @@
                             android:textColor="@color/blackText"/>
 
                         <RadioButton
-                            android:id="@+id/rBelum"
                             android:layout_marginLeft="50dp"
+                            android:id="@+id/rBelum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Belum"
@@ -358,8 +383,8 @@
                         android:background="@color/green"/>
 
                 </android.support.design.widget.TextInputLayout>
-            </LinearLayout>
 
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -377,14 +402,12 @@
                         android:textColor="@color/green"
                         app:backgroundTint="@color/green"
                         android:drawableTint="@color/green"
-                        android:text="-"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+                        tools:ignore="HardcodedText,RtlHardcoded"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/greenTransparant"/>
+
+
+
         </TableLayout>
     </ScrollView>
     <LinearLayout
@@ -395,7 +418,7 @@
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EDIT"
+            android:text="Ubah Data"
             android:layout_alignParentBottom="true"
             android:textColor="@color/white"
             android:background="@color/green"
@@ -403,5 +426,4 @@
     </LinearLayout>
 
 </LinearLayout>
-
 

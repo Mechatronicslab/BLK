@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
@@ -85,9 +86,7 @@ public class TambahKaryawan extends AppCompatActivity {
     @BindView(R.id.etPendTerakhir)
     EditText txtPendTerakhir ;
     @BindView(R.id.etTMT)
-    EditText txtTmt ;
-    @BindView(R.id.etStatus)
-    EditText txtStatus ;
+    AutoCompleteTextView txtTmt ;
     @BindView(R.id.radiogrupsertifikasi)
     RadioGroup RadioSertifi ;
     @BindView(R.id.etAlamat)
@@ -100,16 +99,13 @@ public class TambahKaryawan extends AppCompatActivity {
 
     @BindView(R.id.spinnerJabatan)
     Spinner spinnerJabatan;
-    private ArrayAdapter<CharSequence> adapter;
-    private List<CharSequence> items;
-    private String[] strings;
+    @BindView(R.id.spinnerStatus)
+    Spinner spinnerStatus;
+    private ArrayAdapter<CharSequence> adapterJabatan,adapterStatus;
+    private List<CharSequence> itemJabatan,itemStatus;
+    private String[] stringJabatan,stringStatus;
 
-    private LinkedHashMapAdapter<String, String> adapter1;
-    private LinkedHashMap<String, String> mapData;
 
-    private AutoCompleteTextView autocomplete;
-    private LinkedHashMapAdapter<String, String> acadapter;
-    private int mAcFlags;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,12 +117,22 @@ public class TambahKaryawan extends AppCompatActivity {
         Laki.setChecked(true);
         Sudah.setChecked(true);
 
-        strings = getResources().getStringArray(R.array.SpinnerJabatan);
-        items = new ArrayList<CharSequence>(Arrays.asList(strings));
-        adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerJabatan.setAdapter(adapter);
+        stringJabatan = getResources().getStringArray(R.array.StringSpinJabatan);
+        itemJabatan = new ArrayList<CharSequence>(Arrays.asList(stringJabatan));
+        adapterJabatan = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, itemJabatan);
+        adapterJabatan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerJabatan.setAdapter(adapterJabatan);
 
+        stringStatus = getResources().getStringArray(R.array.StringSpinStatus);
+        itemStatus = new ArrayList<CharSequence>(Arrays.asList(stringStatus));
+        adapterStatus = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, itemStatus);
+        adapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerStatus.setAdapter(adapterStatus);
+
+        String[] StringTahun = getResources().getStringArray(R.array.StringTahun);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,StringTahun);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        txtTmt.setAdapter(adapter);
 
 
 
@@ -163,7 +169,7 @@ public class TambahKaryawan extends AppCompatActivity {
         String pendTerakhir = txtPendTerakhir.getText().toString();
         String tmt = txtTmt.getText().toString();
         String jabatan = spinnerJabatan.getSelectedItem().toString();
-        String status = txtStatus.getText().toString();
+        String status = spinnerStatus.getSelectedItem().toString();
         String sertifikasi = itemSertifi.getText().toString();
         String alamat = txtAlamat.getText().toString();
         if(kelamin.equals("Laki-Laki")){
@@ -287,6 +293,9 @@ public class TambahKaryawan extends AppCompatActivity {
     private void showDateDialog(){
         Calendar newCalendar = Calendar.getInstance();
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            private View view;
+
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
@@ -297,7 +306,7 @@ public class TambahKaryawan extends AppCompatActivity {
                  */
                 txtTglLahir.setText(dateFormatter.format(newDate.getTime()));
             }
-        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        },newCalendar.get(Calendar.YEAR),newCalendar.get(Calendar.MONTH),newCalendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
 }
