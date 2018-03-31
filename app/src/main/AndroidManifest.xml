@@ -58,7 +58,8 @@
             android:name=".admin_akademik.EditKaryawan"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".admin_akademik.FullScreenFoto" />
-        <activity android:name=".admin_akademik.TambahKaryawan" />
+        <activity android:name=".admin_akademik.TambahKaryawan"
+            android:windowSoftInputMode="adjustPan"/>
           </application>
 
 </manifest>

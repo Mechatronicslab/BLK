@@ -1,4 +1,4 @@
-package com.example.juli_soep.sekolah.admin_akademik;
+package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -8,9 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,7 +36,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import butterknife.OnItemLongClick;
-import butterknife.OnLongClick;
 import volley.AppController;
 import volley.Config;
 
