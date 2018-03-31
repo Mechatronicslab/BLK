@@ -159,6 +159,25 @@
             android:layout_marginTop="8dp"
             android:theme="@style/EditTextHint">
             <EditText
+                android:id="@+id/ed_potongan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Potongan"
+                android:inputType="number"
+                android:textColor="#FFF"
+                app:backgroundTint="#FFF"
+                android:textSize="18dp"
+                android:text="0"
+                android:drawableLeft="@drawable/ic_"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:theme="@style/EditTextHint">
+            <EditText
                 android:id="@+id/ed_gapok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
