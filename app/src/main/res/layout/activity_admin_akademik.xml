@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.juli_soep.sekolah.admin_akademik.AdminAkademikActivity">
+    tools:context="com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity">
 
     <LinearLayout
         android:id="@+id/firstLayout"

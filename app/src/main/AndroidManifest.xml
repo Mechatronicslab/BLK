@@ -45,20 +45,20 @@
         <activity android:name=".home.MisiSekolah" />
         <activity android:name=".home.AlamatSekolah" />
         <activity android:name=".admin_akademik.DaftarGuru" />
-        <activity android:name=".admin_akademik.AdminAkademikActivity" />
+        <activity android:name=".admin_akademik.DataKaryawan.AdminAkademikActivity" />
         <activity android:name=".siswa.SiswaActivity" />
         <activity android:name=".guru.GuruActivity" />
         <activity android:name=".siswa.ProfileSiswa" />
         <activity android:name=".guru.ProfileGuru" />
-        <activity android:name=".admin_akademik.karyawan" />
+        <activity android:name=".admin_akademik.DataKaryawan.karyawan" />
         <activity
-            android:name=".admin_akademik.DetailKaryawan"
+            android:name=".admin_akademik.DataKaryawan.DetailKaryawan"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".admin_akademik.EditKaryawan"
+            android:name=".admin_akademik.DataKaryawan.EditKaryawan"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".admin_akademik.FullScreenFoto" />
-        <activity android:name=".admin_akademik.TambahKaryawan"
+        <activity android:name=".admin_akademik.DataKaryawan.FullScreenFoto" />
+        <activity android:name=".admin_akademik.DataKaryawan.TambahKaryawan"
             android:windowSoftInputMode="adjustPan"/>
           </application>
 

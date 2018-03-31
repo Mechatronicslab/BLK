@@ -1,36 +1,19 @@
-package com.example.juli_soep.sekolah.admin_akademik;
+package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
 
-import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -47,11 +30,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterKaryawan;
-import com.example.juli_soep.sekolah.home.MainActivity;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
-import com.google.android.gms.nearby.messages.internal.Update;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -59,7 +37,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -73,15 +50,9 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import de.hdodenhof.circleimageview.CircleImageView;
 import volley.AppController;
 import volley.Config;
-import volley.Session;
 import volley.VolleyMultipartRequest;
-
-import static android.media.MediaRecorder.VideoSource.CAMERA;
-import static com.example.juli_soep.sekolah.R.id.imageView;
-import static com.example.juli_soep.sekolah.R.id.rLaki;
 
 public class EditKaryawan extends AppCompatActivity {
     private ProgressDialog pDialog;

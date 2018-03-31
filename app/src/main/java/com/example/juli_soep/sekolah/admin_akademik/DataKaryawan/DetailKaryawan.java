@@ -1,11 +1,10 @@
-package com.example.juli_soep.sekolah.admin_akademik;
+package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
