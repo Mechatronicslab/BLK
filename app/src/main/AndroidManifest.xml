@@ -58,6 +58,8 @@
             android:name=".admin_akademik.DataKaryawan.EditKaryawan"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".admin_akademik.DataKaryawan.FullScreenFoto" />
+        <activity android:name=".admin_keuangan.AppsKeuangan"/>
+        <activity android:name=".admin_keuangan.InputGajih"/>
         <activity android:name=".admin_akademik.DataKaryawan.TambahKaryawan" />
           </application>
 
