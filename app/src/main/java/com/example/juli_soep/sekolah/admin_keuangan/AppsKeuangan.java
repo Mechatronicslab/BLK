@@ -12,6 +12,7 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.juli_soep.sekolah.R;
+import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.home.MainActivity;
 
 import java.util.HashMap;
@@ -19,9 +20,10 @@ import java.util.HashMap;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import volley.Session;
 
 public class AppsKeuangan extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
-
+    private Session sesion;
     @BindView(R.id.slider)
     SliderLayout sliderLayout;
 
@@ -33,7 +35,7 @@ public class AppsKeuangan extends AppCompatActivity implements BaseSliderView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apps_keuangan);
         ButterKnife.bind(this);
-
+        sesion = new Session(getApplicationContext());
         imageSlider();
     }
 
@@ -99,6 +101,15 @@ public class AppsKeuangan extends AppCompatActivity implements BaseSliderView.On
     public void onBackPressed() {
         Intent a = new Intent(AppsKeuangan.this, MainActivity.class);
         startActivity(a);
+        finish();
+    }
+
+    @OnClick(R.id.btnLogout)
+    void logout(){
+        sesion.setLogin(false);
+        sesion.setSessid(0);
+        Intent i = new Intent(AppsKeuangan.this , MainActivity.class);
+        startActivity(i);
         finish();
     }
 }

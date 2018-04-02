@@ -1,15 +1,30 @@
 package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -21,6 +36,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
 import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterKaryawan;
 import com.example.juli_soep.sekolah.helper.admin_akademik.DataKaryawan;
+import com.google.android.gms.maps.MapsInitializer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +45,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -39,51 +56,47 @@ import butterknife.OnItemLongClick;
 import volley.AppController;
 import volley.Config;
 
-public class karyawan extends AppCompatActivity  {
+public class karyawan extends AppCompatActivity implements SearchView.OnQueryTextListener  {
     int previousPosition=-1;
     int count=0;
     long previousMil=0;
+    ArrayList<DataKaryawan> newsList=new ArrayList<DataKaryawan>();
     String nik ;
-    List<DataKaryawan> newsList = new ArrayList<DataKaryawan>();
-
-    private static final String TAG = karyawan.class.getSimpleName();
-    boolean longclick;
     AdapterKaryawan adapter;
-    Handler handler;
-    Runnable runnable;
     private ProgressDialog pDialog;
-
     int socketTimeout = 30000; // 30 seconds. You can change it
     RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
     @BindView(R.id.list_news)
     ListView list;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_karyawan);
         ButterKnife.bind(this);
-        newsList.clear();
-        adapter = new AdapterKaryawan(karyawan.this, newsList);
-        list.setAdapter(adapter);
-        list.clearFocus();
+        SearchView searchnya = (SearchView) findViewById(R.id.searchView1);
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
+        adapter = new AdapterKaryawan(getApplicationContext(), newsList);
+        list.setAdapter(adapter);
         ShowKaryawan();
+        searchnya.setOnQueryTextListener(this);
     }
 
+
     @OnItemClick(R.id.list_news)
-    void onItemClick(int position) {
+    void onItemClick(AdapterView<?>parent ,int position) {
         if(previousPosition==position){
             count++;
             if(count==2)
             {
+                DataKaryawan niknya = (DataKaryawan)adapter.getItem(position);
                 Intent intent = new Intent(karyawan.this, EditKaryawan.class);
-                intent.putExtra("nik", newsList.get(position).getNik());
+                intent.putExtra("nik", niknya.getNik());
                 startActivity(intent);
+
             }
         }else{
             previousPosition=position;
@@ -155,14 +168,6 @@ public class karyawan extends AppCompatActivity  {
                             object.setJabatan(jsonObject.getString("jabatan"));
                             object.setStatus(jsonObject.getString("status"));
                             object.setSertifikasi(jsonObject.getString("sertifikasi"));
-                            /*String sertifi = jsonObject.getString("sertifikasi");
-                            if (sertifi.equals("Y")){
-                                object.setSertifikasi("Sudah Sertifikasi");
-                            }else{
-                                object.setSertifikasi("Belum Sertifikasi");
-
-                            }*/
-
                             newsList.add(object);
                         }
                     }else {
@@ -276,5 +281,18 @@ public class karyawan extends AppCompatActivity  {
         startActivity(a);
         finish();
         super.onBackPressed();
+    }
+
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapter.getFilter().filter(newText);
+        return false;
     }
 }

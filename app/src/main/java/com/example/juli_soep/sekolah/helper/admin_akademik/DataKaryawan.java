@@ -9,8 +9,8 @@ public class DataKaryawan {
 
     public DataKaryawan(){}
 
-    public DataKaryawan(String foto ,String nama ,String nik ,String nuptk ,String tmptLahir,String tglLahir,String kelamin,
-                        String pendTerakhir,String tmt,String jabatan,String status,String sertifikasi,String alamat ){
+    public DataKaryawan(String foto ,String nama ,String nik ,
+                       String jabatan,String status,String sertifikasi){
 
         this.foto = foto ;
         this.nama = nama;
