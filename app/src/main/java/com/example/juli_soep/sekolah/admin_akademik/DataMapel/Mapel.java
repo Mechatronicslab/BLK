@@ -1,30 +1,16 @@
-package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
+package com.example.juli_soep.sekolah.admin_akademik.DataMapel;
 
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -34,9 +20,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterKaryawan;
-import com.example.juli_soep.sekolah.helper.admin_akademik.DataKaryawan;
-import com.google.android.gms.maps.MapsInitializer;
+import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity;
+import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterMapel;
+import com.example.juli_soep.sekolah.helper.admin_akademik.DataMapel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,8 +30,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -56,45 +40,44 @@ import butterknife.OnItemLongClick;
 import volley.AppController;
 import volley.Config;
 
-public class karyawan extends AppCompatActivity implements SearchView.OnQueryTextListener  {
+public class Mapel extends AppCompatActivity implements SearchView.OnQueryTextListener {
     int previousPosition=-1;
     int count=0;
     long previousMil=0;
-    ArrayList<DataKaryawan> newsList=new ArrayList<DataKaryawan>();
-    String nik ;
-    AdapterKaryawan adapter;
+    ArrayList<DataMapel> MapelList=new ArrayList<DataMapel>();
+    String kdMapel ;
+    AdapterMapel adapter;
     private ProgressDialog pDialog;
     int socketTimeout = 10000; // 30 seconds. You can change it
     RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-    @BindView(R.id.list_news)
-    ListView list;
+    @BindView(R.id.list_mapel)
+    ListView listMapel;
+    @BindView(R.id.searchView)
+    SearchView searchnya;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_karyawan);
+        setContentView(R.layout.activity_mapel);
         ButterKnife.bind(this);
-        SearchView searchnya = (SearchView) findViewById(R.id.searchView1);
-
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
-        adapter = new AdapterKaryawan(getApplicationContext(), newsList);
-        list.setAdapter(adapter);
-        ShowKaryawan();
+        adapter = new AdapterMapel(getApplicationContext(), MapelList);
+        listMapel.setAdapter(adapter);
+        ShowMapel();
         searchnya.setOnQueryTextListener(this);
+
     }
-
-
-    @OnItemClick(R.id.list_news)
-    void onItemClick(AdapterView<?>parent ,int position) {
+    @OnItemClick(R.id.list_mapel)
+    void onItemClick(AdapterView<?> parent , int position) {
         if(previousPosition==position){
             count++;
             if(count==2)
             {
-                DataKaryawan niknya = (DataKaryawan)adapter.getItem(position);
-                Intent intent = new Intent(karyawan.this, EditKaryawan.class);
-                intent.putExtra("nik", niknya.getNik());
+                DataMapel kdMapel = (DataMapel)adapter.getItem(position);
+                Intent intent = new Intent(Mapel.this, EditMapel.class);
+                intent.putExtra("kd_mapel", kdMapel.getKdMapel());
                 startActivity(intent);
 
             }
@@ -106,17 +89,17 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
 
     }
 
-    @OnItemLongClick(R.id.list_news)
+    @OnItemLongClick(R.id.list_mapel)
     boolean OnItemLongClick(final int position) {
-        AlertDialog.Builder adb = new AlertDialog.Builder(karyawan.this);
+        AlertDialog.Builder adb = new AlertDialog.Builder(Mapel.this);
         adb.setCancelable(false);
-        ImageView image = new ImageView(karyawan.this);
+        ImageView image = new ImageView(Mapel.this);
         image.setImageResource(R.drawable.quantum_ic_stop_grey600_36);
         adb.setTitle("Apakah Anda Yakin Ingin Menghapus Data ini? \n");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                nik = newsList.get(position).getNik();
-                DeleteKaryawan(nik);
+                kdMapel = MapelList.get(position).getKdMapel();
+                DeleteMapel(kdMapel);
 
             } });
         adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -131,13 +114,13 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
         return false;
     }
 
-    @OnClick (R.id.btnTambah)
+    @OnClick(R.id.btnTambah)
     void btnTambah(){
-        Intent i = new Intent(karyawan.this, TambahKaryawan.class);
+        Intent i = new Intent(Mapel.this, TambahMapel.class);
         startActivity(i);
         finish();
     }
-    private void ShowKaryawan(){
+    private void ShowMapel(){
 
         pDialog.setMessage("Loading.....");
         showDialog();
@@ -161,14 +144,11 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            DataKaryawan object = new DataKaryawan();
-                            object.setNama(jsonObject.getString("nama"));
-                            object.setNik(jsonObject.getString("nik"));
-                            object.setFoto(jsonObject.getString("foto"));
-                            object.setJabatan(jsonObject.getString("jabatan"));
-                            object.setStatus(jsonObject.getString("status"));
-                            object.setSertifikasi(jsonObject.getString("sertifikasi"));
-                            newsList.add(object);
+                            DataMapel object = new DataMapel();
+                            object.setKdMapel(jsonObject.getString("kd_mapel"));
+                            object.setNamaMapel(jsonObject.getString("nama_mapel"));
+
+                            MapelList.add(object);
                         }
                     }else {
                         String error_msg = jObj.getString("error");
@@ -190,7 +170,7 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
                 error.printStackTrace();
                 Toast.makeText(getApplicationContext(), Config.Jaringan_error ,Toast.LENGTH_LONG).show();
                 hideDialog();
-                Intent i = new Intent(karyawan.this,AdminAkademikActivity.class);
+                Intent i = new Intent(Mapel.this,AdminAkademikActivity.class);
                 startActivity(i);
                 finish();
 
@@ -200,7 +180,7 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("tag","ShowKaryawan");
+                params.put("tag","ShowMapel");
                 return params;
             }
         };
@@ -208,7 +188,7 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
 
-    private void DeleteKaryawan(final String nik){
+    private void DeleteMapel(final String kdMapel){
 
         pDialog.setMessage("Loading.....");
         showDialog();
@@ -256,8 +236,8 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("tag","DeleteKaryawan");
-                params.put("nik",nik);
+                params.put("tag","DeleteMapel");
+                params.put("kd_mapel",kdMapel);
                 return params;
             }
         };
@@ -279,7 +259,7 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
     public void onBackPressed()
     {
 
-        Intent a = new Intent(karyawan.this, AdminAkademikActivity.class);
+        Intent a = new Intent(Mapel.this, AdminAkademikActivity.class);
         startActivity(a);
         finish();
         super.onBackPressed();
@@ -298,3 +278,4 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
         return false;
     }
 }
+

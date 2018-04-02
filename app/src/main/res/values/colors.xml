@@ -15,7 +15,7 @@
     <color name="greenTransparant">#3a40ff66</color>
     <color name="grayTransparant">#8edcd5d8</color>
     <color name="whiteTransparant">#bbffffff</color>
-
+    <color name="black">#000000</color>
     <!--welcome screen-->
     <!-- Screens background color-->
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.juli_soep.sekolah.admin_akademik.DataMapel.Mapel;
 import com.example.juli_soep.sekolah.home.MainActivity;
 import com.example.juli_soep.sekolah.R;
 
@@ -40,8 +41,16 @@ public class AdminAkademikActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    @OnClick(R.id.btnMapel)
+    void btnMapel(){
+        Intent i = new Intent(AdminAkademikActivity.this, Mapel.class);
+        startActivity(i);
+        finish();
+    }
+
     @OnClick(R.id.btnLogout)
-    void klik(){
+    void logout(){
         sesion.setLogin(false);
         sesion.setSessid(0);
         Intent i = new Intent(AdminAkademikActivity.this , MainActivity.class);

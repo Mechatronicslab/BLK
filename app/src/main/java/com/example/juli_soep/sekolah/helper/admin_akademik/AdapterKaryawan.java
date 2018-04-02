@@ -72,7 +72,7 @@ public class AdapterKaryawan extends BaseAdapter implements Filterable{
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         convertView = null;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_row_admin_akademik, null);
+            convertView = inflater.inflate(R.layout.list_row_karyawan, null);
             holder = new ViewHolder();
             holder.foto = (CircleImageView) convertView.findViewById(R.id.foto);
             holder.nmr = (TextView) convertView.findViewById(R.id.nomornya);
