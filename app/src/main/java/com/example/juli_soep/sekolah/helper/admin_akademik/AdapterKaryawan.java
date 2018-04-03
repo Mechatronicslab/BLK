@@ -87,10 +87,10 @@ public class AdapterKaryawan extends BaseAdapter implements Filterable{
             String urlfoto = Config.URL + "foto/";
             String urlnya = newsItems.get(position).getFoto();
             String fotoNya = urlfoto + newsItems.get(position).getFoto();
-            String a = fotoNya;
+
 
             if (urlnya.length() > 1) {
-                Picasso.with(this.context).load(a).into(holder.foto);
+                Picasso.with(this.context).load(fotoNya).into(holder.foto);
             } else {
                 Picasso.with(this.context).load(R.drawable.profi).into(holder.foto);
             }

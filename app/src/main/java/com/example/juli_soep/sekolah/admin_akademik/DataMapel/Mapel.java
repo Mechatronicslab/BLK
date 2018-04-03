@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
 import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterMapel;
+import com.example.juli_soep.sekolah.helper.admin_akademik.DataKaryawan;
 import com.example.juli_soep.sekolah.helper.admin_akademik.DataMapel;
 
 import org.json.JSONArray;
@@ -98,8 +99,8 @@ public class Mapel extends AppCompatActivity implements SearchView.OnQueryTextLi
         adb.setTitle("Apakah Anda Yakin Ingin Menghapus Data ini? \n");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                kdMapel = MapelList.get(position).getKdMapel();
-                DeleteMapel(kdMapel);
+                DataMapel kdMapelnya = (DataMapel) adapter.getItem(position);
+                DeleteMapel(kdMapelnya.getKdMapel());
 
             } });
         adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.juli_soep.sekolah.admin_akademik.DataMapel.TambahMapel">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+            <EditText
+                android:id="@+id/etKdMapel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Kode Mata Pelajaran"
+                android:inputType="number|textAutoComplete"
+                android:textColor="@color/green"
+                app:backgroundTint="@color/green"
+                android:drawableTint="@color/green"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+            <EditText
+                android:id="@+id/etNamaMapel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Mata Pelajaran"
+                android:inputType="textAutoComplete"
+                android:textColor="@color/green"
+                app:backgroundTint="@color/green"
+                android:drawableTint="@color/green"
+                android:nextFocusDown="@id/pickDate"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simpan"
+                android:textColor="@color/white"
+                android:background="@color/green"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
