@@ -318,7 +318,7 @@ public class EditKaryawan extends AppCompatActivity {
                 return params;
             }
         };
-
+        strReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
 
@@ -463,7 +463,7 @@ public class EditKaryawan extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "errorr", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), Config.Jaringan_error, Toast.LENGTH_SHORT).show();
                         hideDialog();
                     }
                 }) {
@@ -495,7 +495,7 @@ public class EditKaryawan extends AppCompatActivity {
             }
         };
 
-        //adding the request to volley
+        volleyMultipartRequest.setRetryPolicy(policy);
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 

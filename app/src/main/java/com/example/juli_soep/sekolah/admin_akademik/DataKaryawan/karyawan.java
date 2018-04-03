@@ -115,8 +115,8 @@ public class karyawan extends AppCompatActivity implements SearchView.OnQueryTex
         adb.setTitle("Apakah Anda Yakin Ingin Menghapus Data ini? \n");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                nik = newsList.get(position).getNik();
-                DeleteKaryawan(nik);
+                DataKaryawan niknya = (DataKaryawan)adapter.getItem(position);
+                DeleteKaryawan(niknya.getNik());
 
             } });
         adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

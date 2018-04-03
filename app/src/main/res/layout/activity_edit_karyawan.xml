@@ -418,7 +418,7 @@
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ubah Data"
+            android:text="Simpan"
             android:layout_alignParentBottom="true"
             android:textColor="@color/white"
             android:background="@color/green"
