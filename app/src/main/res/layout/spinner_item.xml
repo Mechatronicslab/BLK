@@ -3,6 +3,5 @@
         android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:textSize="17dp"
-        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:padding="10dp" />

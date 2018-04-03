@@ -146,4 +146,11 @@
 
     </string-array>
 
+
+    <string-array name="StringGolongan">
+        <item>III A</item>
+        <item>II D</item>
+        <item>II C</item>
+    </string-array>
+
 </resources>

@@ -26,6 +26,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
+import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.EditKaryawan;
+import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.TambahKaryawan;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,16 +62,10 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
     String strNama;
     String strPendidikan;
     String strJabatam;
-    int strMasaKerja;
     double strGapok;
     double strTunJabatan;
     double strTunLainnya;
-    double strJumlanPinjam;
-    double strJumlahPotongan;
-    double strSisaPnjam;
-    double strGajihBersih;
-
-    double strTotalGajih;
+    String strGolongan;
 
 
     @BindView(R.id.spnProfile) Spinner profileSpn;
@@ -77,6 +73,7 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
     @BindView(R.id.ed_pendidikan) EditText edtPendidikan;
     @BindView(R.id.ed_jabatan) EditText edtJabatan;
     @BindView(R.id.ed_masa_kerja) EditText edMasaKerja;
+    @BindView(R.id.spnGolongan) Spinner spnGolongan;
     @BindView(R.id.ed_gapok) EditText edGapok;
     @BindView(R.id.ed_tun_jabatan) EditText edTunJabatan;
     @BindView(R.id.ed_tun_lainnya) EditText edTunjanganLainnya;
@@ -121,6 +118,7 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
 
                     kampret = strGapok + strTunLainnya + strTunJabatan;
                     txtTotGajih.setText(String.valueOf(kampret));
+                    txtGajihBersih.setText(String.valueOf(kampret));
                 }catch (NumberFormatException e){
                     strGapok         = 0.0;
                     strTunJabatan    = 0.0;
@@ -350,22 +348,103 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
     }
 
 
+    private void inputGajih(final String nik, final String nama, final String golongan, final String pedidikan, final String jabatan
+            , final String masaKerja, final String gapok, final String tunJabatan, final String tunLain, final String potongan, final String totGajih
+            , final String jumlahPinjaman, final String jumlahPotongan, final String sisaPinjaman, final String gajihBersih){
+
+        //Tag used to cancel the request
+        String tag_string_req = "req_login";
+
+        pDialog.setMessage("Please Wait.....");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                Config.URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Response: " , response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    if(!error){
+                        String suksess = jObj.getString("message");
+                        Toast.makeText(getApplicationContext(),suksess,Toast.LENGTH_LONG).show();
+                    }else {
+                        String error_msg = jObj.getString("message");
+                        Toast.makeText(getApplicationContext(),
+                                error_msg, Toast.LENGTH_LONG).show();
+                    }
+
+                }catch (JSONException e){
+                    //JSON error
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
+
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Log.e("Update Error : " , error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please Check Your Network Connection", Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tag", "inputGajiKaryawan");
+                params.put("nama", nama);
+                params.put("nik", nik);
+                params.put("gol", golongan);
+                params.put("pendidikan", pedidikan);
+                params.put("jabatan", jabatan);
+                params.put("masakerja", masaKerja);
+                params.put("gajihpokok", gapok);
+                params.put("tunjabatan", tunJabatan);
+                params.put("tunlain", tunLain);
+                params.put("potongan", potongan);
+                params.put("totgajih", totGajih);
+                params.put("jumpinjam", jumlahPinjaman);
+                params.put("jumpotongan", jumlahPotongan);
+                params.put("sisapinjam", sisaPinjaman);
+                params.put("gajihbersih", gajihBersih);
+                return params;
+            }
+        };
+
+        strReq.setRetryPolicy(policy);
+        AppController.getInstance().addToRequestQueue(strReq,tag_string_req);
+
+    }
+
     @OnClick(R.id.buttonSimpan)
     void simpadgajih(){
 
-        dataSplit[0]     = profileSpn.getSelectedItem().toString();
+        String nik   = profileSpn.getSelectedItem().toString();
+        String[] splitNik = nik.split(" - ");
         strNama          = edtNama.getText().toString();
+        strGolongan      = spnGolongan.getSelectedItem().toString();
         strPendidikan    = edtPendidikan.getText().toString();
         strJabatam       = edtJabatan.getText().toString();
-        strMasaKerja     = Integer.parseInt(edMasaKerja.getText().toString());
-        strGapok         = Double.parseDouble(edGapok.getText().toString());
-        strTunJabatan    = Double.parseDouble(edTunJabatan.getText().toString());
-        strTunLainnya    = Double.parseDouble(edTunjanganLainnya.getText().toString());
-        strJumlanPinjam  = Double.parseDouble(edJumPinjam.getText().toString());
-        strJumlahPotongan= Double.parseDouble(edJumPotonga.getText().toString());
-        strSisaPnjam     = Double.parseDouble(txtSisaPinjam.getText().toString());
-        strGajihBersih   = Double.parseDouble(txtGajihBersih.getText().toString());
+        String strMasaKerja     = edMasaKerja.getText().toString();
+        String strGapok         = edGapok.getText().toString();
+        String strTotalGajih    = txtTotGajih.getText().toString();
+        String strTunJabatan    = edTunJabatan.getText().toString();
+        String strTunLainnya    = edTunjanganLainnya.getText().toString();
+        String strJumlanPinjam  = edJumPinjam.getText().toString();
+        String strJumlahPotongan= edJumPotonga.getText().toString();
+        String strSisaPnjam     = txtSisaPinjam.getText().toString();
+        String strGajihBersih   = txtGajihBersih.getText().toString();
 
+            inputGajih(dataSplit[0],strNama, strGolongan,strPendidikan, strJabatam,
+                    strMasaKerja, strGapok, strTunJabatan,strTunLainnya,strJumlahPotongan,
+                    strTotalGajih,strJumlanPinjam,strJumlahPotongan,strJumlanPinjam,strGajihBersih);
     }
 
 }
