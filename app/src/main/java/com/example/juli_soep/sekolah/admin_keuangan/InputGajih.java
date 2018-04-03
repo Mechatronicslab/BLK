@@ -5,13 +5,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -32,14 +37,13 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import volley.AppController;
 import volley.Config;
 
 public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelectedListener,  View.OnClickListener{
 
     private Toolbar mTopToolbar;
-
-    private Spinner profileSpn;
     private ArrayList<String> spnProfile;
     ProgressDialog pDialog;
 
@@ -51,16 +55,38 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
     //JSON Array
     private JSONArray result;
 
+    private TextWatcher text = null;
 
-    @BindView(R.id.ed_nama)
-    EditText edtNama;
+    String strNama;
+    String strPendidikan;
+    String strJabatam;
+    int strMasaKerja;
+    double strGapok;
+    double strTunJabatan;
+    double strTunLainnya;
+    double strJumlanPinjam;
+    double strJumlahPotongan;
+    double strSisaPnjam;
+    double strGajihBersih;
 
-    @BindView(R.id.ed_pendidikan)
-    EditText edtPendidikan;
+    double strTotalGajih;
 
-    @BindView(R.id.ed_jabatan)
-    EditText edtJabatan;
 
+    @BindView(R.id.spnProfile) Spinner profileSpn;
+    @BindView(R.id.ed_nama) EditText edtNama;
+    @BindView(R.id.ed_pendidikan) EditText edtPendidikan;
+    @BindView(R.id.ed_jabatan) EditText edtJabatan;
+    @BindView(R.id.ed_masa_kerja) EditText edMasaKerja;
+    @BindView(R.id.ed_gapok) EditText edGapok;
+    @BindView(R.id.ed_tun_jabatan) EditText edTunJabatan;
+    @BindView(R.id.ed_tun_lainnya) EditText edTunjanganLainnya;
+    @BindView(R.id.txttotalGajih) TextView txtTotGajih;
+    @BindView(R.id.ed_jmlh_pinjam) EditText edJumPinjam;
+    @BindView(R.id.ed_jmlh_potongan) EditText edJumPotonga;
+    @BindView(R.id.txt_sisa_Pinjam) TextView txtSisaPinjam;
+    @BindView(R.id.txtgajihBersih) TextView txtGajihBersih;
+
+    String[] dataSplit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +97,7 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
         setSupportActionBar(mTopToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Input Gajih");
-
-        profileSpn = (Spinner) findViewById(R.id.spnProfile);
+        edMasaKerja.requestFocus();
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -80,20 +105,38 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
         spnProfile = new ArrayList<String>();
         profileSpn.setOnItemSelectedListener(this);
 
+        text = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                double kampret;
+                try{
+                    strGapok         = Double.parseDouble(edGapok.getText().toString());
+                    strTunJabatan    = Double.parseDouble(edTunJabatan.getText().toString());
+                    strTunLainnya    = Double.parseDouble(edTunjanganLainnya.getText().toString());
+
+                    kampret = strGapok + strTunLainnya + strTunJabatan;
+                    txtTotGajih.setText(String.valueOf(kampret));
+                }catch (NumberFormatException e){
+                    strGapok         = 0.0;
+                    strTunJabatan    = 0.0;
+                    strTunLainnya    = 0.0;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        edTunjanganLainnya.addTextChangedListener(text);
         getDataProfile();
-
-        profileSpn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                select();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
-
-        });
+        select();
 
     }
 
@@ -235,7 +278,16 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
                     if(!error){
                         String nama       = jObj.getString("nama");edtNama.setText(nama);
                         String jabatan    = jObj.getString("jabatan");edtJabatan.setText(jabatan);
-                        String pendidikan = jObj.getString("pendidikan");edtPendidikan.setText(pendidikan);
+                        String pendidikan = jObj.getString("pendidikan");
+                        //String[] dataSplit = profile.split(" - ");
+                        //Toast.makeText(getApplicationContext(), dataSplit[0], Toast.LENGTH_LONG).show();
+                        //getDataFromNik(dataSplit[0]);
+                        String[] splitPendidikan = pendidikan.split("\\s");
+                        if(splitPendidikan[0].equals(null)){
+                            edtPendidikan.setText("-");
+                        }else{
+                            edtPendidikan.setText(splitPendidikan[0]);
+                        }
 
                     }else {
                         String error_msg = jObj.getString("error_msg");
@@ -285,7 +337,7 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
                 // TODO Auto-generated method stub
                 String profile=profileSpn.getSelectedItem().toString();
                 Log.e("Selected item : ",profile);
-                String[] dataSplit = profile.split(" - ");
+                dataSplit = profile.split(" - ");
                 //Toast.makeText(getApplicationContext(), dataSplit[0], Toast.LENGTH_LONG).show();
                 getDataFromNik(dataSplit[0]);
             }
@@ -297,5 +349,23 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
         });
     }
 
+
+    @OnClick(R.id.buttonSimpan)
+    void simpadgajih(){
+
+        dataSplit[0]     = profileSpn.getSelectedItem().toString();
+        strNama          = edtNama.getText().toString();
+        strPendidikan    = edtPendidikan.getText().toString();
+        strJabatam       = edtJabatan.getText().toString();
+        strMasaKerja     = Integer.parseInt(edMasaKerja.getText().toString());
+        strGapok         = Double.parseDouble(edGapok.getText().toString());
+        strTunJabatan    = Double.parseDouble(edTunJabatan.getText().toString());
+        strTunLainnya    = Double.parseDouble(edTunjanganLainnya.getText().toString());
+        strJumlanPinjam  = Double.parseDouble(edJumPinjam.getText().toString());
+        strJumlahPotongan= Double.parseDouble(edJumPotonga.getText().toString());
+        strSisaPnjam     = Double.parseDouble(txtSisaPinjam.getText().toString());
+        strGajihBersih   = Double.parseDouble(txtGajihBersih.getText().toString());
+
+    }
 
 }
