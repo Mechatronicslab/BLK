@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_"
+    tools:context="com.example.juli_soep.sekolah.admin_keuangan.DetailPeminjaman">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/HeaderBar"
+        app:theme="@style/HeaderBar"
+        app:popupTheme="@style/HeaderBar"
+        android:elevation="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:theme="@style/EditTextHint">
+
+            <EditText
+                android:id="@+id/ed_nik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_"
+                android:enabled="false"
+                android:hint="Nik"
+                android:inputType="textAutoComplete"
+                android:text="-"
+                android:textColor="#FFF"
+                android:textSize="18dp"
+                app:backgroundTint="#FFF"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:theme="@style/EditTextHint">
+
+            <EditText
+                android:id="@+id/ed_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_"
+                android:enabled="false"
+                android:hint="Nama"
+                android:inputType="textAutoComplete"
+                android:text="-"
+                android:textColor="#FFF"
+                android:textSize="18dp"
+                app:backgroundTint="#FFF"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:theme="@style/EditTextHint">
+
+            <EditText
+                android:id="@+id/ed_jumlah_pinjaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_"
+                android:hint="Jumlah Pinjaman"
+                android:inputType="numberDecimal"
+                android:textColor="#FFF"
+                android:textSize="18dp"
+                app:backgroundTint="#FFF"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonUpdatePinjaman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_rounded_white"
+            android:text="Update"
+            android:textColor="#FFF"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+        <Button
+            android:id="@+id/buttonHapusPinjaman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_rounded_white"
+            android:text="Hapus"
+            android:textColor="#FFF"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+    </LinearLayout>
+
+</LinearLayout>
