@@ -86,7 +86,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
-                            android:text="Input Data Gajih"
+                            android:text="Input Data Gaji"
                             android:id="@+id/textView" />
 
                         <View
@@ -99,7 +99,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Input Data Gajih Karyawan"
+                            android:text="Input Data Gaji Karyawan"
                             android:padding="5dp"
                             android:textColor="@color/blackText"
                             android:id="@+id/textView2" />
@@ -114,7 +114,7 @@
                     android:layout_margin="10dp">
 
                     <LinearLayout
-                        android:id="@+id/btnDaftarSiswa"
+                        android:id="@+id/btnDataGajih"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -131,7 +131,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
-                            android:text="Data Gajih"/>
+                            android:text="Data Gaji"/>
 
                         <View
                             android:layout_width="match_parent"
@@ -143,7 +143,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menampilkan Data Gajih Siswa"
+                            android:text="Menampilkan Data Gaji Karyawan"
                             android:padding="5dp"
                             android:textColor="@color/blackText"/>
 
@@ -239,11 +239,62 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menampilkan Data SPP"
+                            android:text="Menampilkan Data SPP Siswa"
                             android:padding="5dp"
                             android:textColor="@color/blackText"/>
 
                     </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/btnSttingPinjaman"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/ic_file"
+                            android:padding="15dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="Setting Pinjaman"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorPrimary"
+                            android:layout_margin="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Setting Pinjaman Karyawan"
+                            android:padding="5dp"
+                            android:textColor="@color/blackText"/>
+
+                    </LinearLayout>
+
                 </android.support.v7.widget.CardView>
             </LinearLayout>
 

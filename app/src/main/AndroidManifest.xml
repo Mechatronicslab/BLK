@@ -67,7 +67,11 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".admin_akademik.DataMapel.Mapel" />
         <activity android:name=".admin_akademik.DataMapel.TambahMapel" />
-        <activity android:name=".admin_akademik.DataMapel.EditMapel"></activity>
+        <activity android:name=".admin_akademik.DataMapel.EditMapel" />
+        <activity android:name=".admin_keuangan.SetPinjaman" />
+        <activity android:name=".admin_keuangan.ListDataPinjam" />
+        <activity android:name=".admin_keuangan.DetailPeminjaman" />
+        <activity android:name=".admin_keuangan.ListDataGajih"></activity>
     </application>
 
 </manifest>

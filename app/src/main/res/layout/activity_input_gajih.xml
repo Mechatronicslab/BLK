@@ -286,11 +286,27 @@
                 android:background="@color/white"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:background="@drawable/btn_rounded_white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                android:text="Pinjaman Karyawan"/>
+
+        </LinearLayout>
+
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:visibility="gone"
             android:theme="@style/EditTextHint">
             <EditText
                 android:id="@+id/ed_jmlh_pinjam"
@@ -298,6 +314,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Jumlah Pinjam"
                 android:inputType="number"
+                android:enabled="false"
                 android:textColor="#FFF"
                 app:backgroundTint="#FFF"
                 android:text="0"
@@ -310,7 +327,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:visibility="gone"
             android:theme="@style/EditTextHint">
             <EditText
                 android:id="@+id/ed_jmlh_potongan"
@@ -329,7 +345,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
@@ -364,7 +379,6 @@
                 android:layout_height="1dp"
                 android:background="@color/white"/>
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -405,19 +419,35 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/buttonSimpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_rounded_white"
+            android:text="Simpan Gajih Karyawan"
+            android:textColor="#FFF"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Pinjaman Karyawan"
             android:textColor="#FFF"
             android:background="@drawable/btn_rounded_white"
             android:layout_below="@+id/linearLayout3"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
-            android:id="@+id/buttonSimpan"
+            android:id="@+id/buttonInputPinjaman"
             tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
     </TableLayout>
     </ScrollView>
 </LinearLayout>

@@ -57,7 +57,8 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
     //JSON Array
     private JSONArray result;
 
-    private TextWatcher text = null;
+    private TextWatcher text  = null;
+    private TextWatcher text2 = null;
 
     String strNama;
     String strPendidikan;
@@ -93,7 +94,7 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
         mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(mTopToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Input Gajih");
+        setTitle("Input Gaji");
         edMasaKerja.requestFocus();
 
         pDialog = new ProgressDialog(this);
@@ -117,8 +118,8 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
                     strTunLainnya    = Double.parseDouble(edTunjanganLainnya.getText().toString());
 
                     kampret = strGapok + strTunLainnya + strTunJabatan;
-                    txtTotGajih.setText(String.valueOf(kampret));
                     txtGajihBersih.setText(String.valueOf(kampret));
+                    txtTotGajih.setText(String.valueOf(kampret));
                 }catch (NumberFormatException e){
                     strGapok         = 0.0;
                     strTunJabatan    = 0.0;
@@ -133,6 +134,43 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
         };
 
         edTunjanganLainnya.addTextChangedListener(text);
+
+        text2 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                double kampret;
+                double kampret2;
+                double jumlahPinjam ;
+                double jumotongan;
+                double totGajih;
+                try{
+                    jumlahPinjam         = Double.parseDouble(edJumPinjam.getText().toString());
+                    jumotongan           = Double.parseDouble(edJumPotonga.getText().toString());
+                    totGajih             = Double.parseDouble(txtTotGajih.getText().toString());
+                    kampret =  jumlahPinjam - jumotongan;
+                    kampret2= totGajih - jumotongan;
+                    txtGajihBersih.setText(String.valueOf(kampret2));
+                    txtSisaPinjam.setText(String.valueOf(kampret));
+
+                }catch (NumberFormatException e){
+                    jumlahPinjam  = 0.0;
+                    jumotongan    = 0.0;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        edJumPotonga.addTextChangedListener(text2);
+
         getDataProfile();
         select();
 
@@ -274,19 +312,19 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
                     boolean error = jObj.getBoolean("error");
 
                     if(!error){
-                        String nama       = jObj.getString("nama");edtNama.setText(nama);
-                        String jabatan    = jObj.getString("jabatan");edtJabatan.setText(jabatan);
-                        String pendidikan = jObj.getString("pendidikan");
+                        String nama             = jObj.getString("nama");edtNama.setText(nama);
+                        String jabatan          = jObj.getString("jabatan");edtJabatan.setText(jabatan);
+                        String pendidikan       = jObj.getString("pendidikan");
+                        String jumlahPinjam     = jObj.getString("pinjaman");edJumPinjam.setText(jumlahPinjam);txtSisaPinjam.setText(jumlahPinjam);
                         //String[] dataSplit = profile.split(" - ");
                         //Toast.makeText(getApplicationContext(), dataSplit[0], Toast.LENGTH_LONG).show();
                         //getDataFromNik(dataSplit[0]);
                         String[] splitPendidikan = pendidikan.split("\\s");
-                        if(splitPendidikan[0].equals(null)){
+                        if(splitPendidikan[0].equals(null) && jumlahPinjam.equals(null)){
                             edtPendidikan.setText("-");
                         }else{
                             edtPendidikan.setText(splitPendidikan[0]);
                         }
-
                     }else {
                         String error_msg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
@@ -423,6 +461,67 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
 
     }
 
+
+    private void updatePinjaman(final String nik, final String pinjaman){
+
+        //Tag used to cancel the request
+        String tag_string_req = "req_login";
+
+        pDialog.setMessage("Please Wait.....");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                Config.URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Response: " , response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    if(!error){
+                        //String suksess = jObj.getString("message");
+                        //Toast.makeText(getApplicationContext(),suksess,Toast.LENGTH_LONG).show();
+                    }else {
+                        String error_msg = jObj.getString("message");
+                        Toast.makeText(getApplicationContext(),
+                                error_msg, Toast.LENGTH_LONG).show();
+                    }
+
+                }catch (JSONException e){
+                    //JSON error
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
+
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Log.e("Update Error : " , error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please Check Your Network Connection", Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tag", "updatePinjamanKaryawan");
+                params.put("pinjaman", pinjaman);
+                params.put("nik", nik);
+                return params;
+            }
+        };
+
+        strReq.setRetryPolicy(policy);
+        AppController.getInstance().addToRequestQueue(strReq,tag_string_req);
+
+    }
+
     @OnClick(R.id.buttonSimpan)
     void simpadgajih(){
 
@@ -444,7 +543,8 @@ public class InputGajih extends AppCompatActivity implements Spinner.OnItemSelec
 
             inputGajih(dataSplit[0],strNama, strGolongan,strPendidikan, strJabatam,
                     strMasaKerja, strGapok, strTunJabatan,strTunLainnya,strJumlahPotongan,
-                    strTotalGajih,strJumlanPinjam,strJumlahPotongan,strJumlanPinjam,strGajihBersih);
+                    strTotalGajih,strJumlanPinjam,strJumlahPotongan,strSisaPnjam,strGajihBersih);
+            updatePinjaman(dataSplit[0],strSisaPnjam);
     }
 
 }

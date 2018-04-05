@@ -49,6 +49,20 @@ public class AppsKeuangan extends AppCompatActivity implements BaseSliderView.On
 
     }
 
+    @OnClick(R.id.btnSttingPinjaman)
+    void klikSetPinjaman(){
+        Intent a = new Intent(AppsKeuangan.this, SetPinjaman.class);
+        startActivity(a);
+        finish();
+    }
+
+    @OnClick(R.id.btnDataGajih)
+    void klikListGajih(){
+        Intent a = new Intent(AppsKeuangan.this, ListDataGajih.class);
+        startActivity(a);
+        finish();
+    }
+
     public void imageSlider(){
         Hash_file_maps = new HashMap<String, Integer>();
 

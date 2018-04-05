@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_"
+    tools:context="com.example.juli_soep.sekolah.admin_keuangan.SetPinjaman">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/HeaderBar"
+        app:theme="@style/HeaderBar"
+        app:popupTheme="@style/HeaderBar"
+        android:elevation="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nik"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:layout_marginLeft="35dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_"
+                    android:layout_marginLeft="4dp"/>
+                <Spinner
+                    android:theme="@style/mySpinnerItemStyle"
+                    android:id="@+id/spnProfile"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="-19dp"
+                    android:layout_marginTop="-5dp"
+                    android:popupBackground="@drawable/gradient_"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="-1dp"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:theme="@style/EditTextHint">
+
+            <EditText
+                android:id="@+id/ed_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_"
+                android:enabled="false"
+                android:hint="Nama"
+                android:inputType="textAutoComplete"
+                android:text="-"
+                android:textColor="#FFF"
+                android:textSize="18dp"
+                app:backgroundTint="#FFF"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:theme="@style/EditTextHint">
+
+            <EditText
+                android:id="@+id/ed_jumlah_pinjaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_"
+                android:hint="Jumlah Pinjaman"
+                android:inputType="numberDecimal"
+                android:textColor="#FFF"
+                android:textSize="18dp"
+                app:backgroundTint="#FFF"
+                tools:ignore="HardcodedText,RtlHardcoded" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonInputPinjaman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_rounded_white"
+            android:text="Set Pinjaman Karyawan"
+            android:textColor="#FFF"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+        <Button
+            android:id="@+id/buttonLihatPinjaman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_rounded_white"
+            android:text="Lihat Data Peminjaman"
+            android:textColor="#FFF"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+    </LinearLayout>
+</LinearLayout>
