@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.juli_soep.blk"
+        applicationId "com.juli_soep.smk_blk"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -48,4 +48,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.google.firebase:firebase-core:9.6.0'
+    compile 'com.google.firebase:firebase-auth:9.6.0'
 }
