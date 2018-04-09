@@ -1,13 +1,11 @@
 package com.example.juli_soep.sekolah.admin_akademik.DataMapel;
 
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -17,15 +15,10 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity;
-import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.EditKaryawan;
-import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.TambahKaryawan;
-import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.karyawan;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 

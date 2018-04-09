@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.example.juli_soep.sekolah.GoogleMaps.googlemaps;
 import com.example.juli_soep.sekolah.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         alamat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ProfileActivity.this, AlamatSekolah.class);
+                Intent i = new Intent(ProfileActivity.this, googlemaps.class);
                 startActivity(i);
                 finish();
             }

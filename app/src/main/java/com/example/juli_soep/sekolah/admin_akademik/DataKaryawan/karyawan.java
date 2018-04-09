@@ -1,30 +1,16 @@
 package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
 
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -34,9 +20,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
+import com.example.juli_soep.sekolah.admin_akademik.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.helper.admin_akademik.AdapterKaryawan;
 import com.example.juli_soep.sekolah.helper.admin_akademik.DataKaryawan;
-import com.google.android.gms.maps.MapsInitializer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,8 +30,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;

@@ -19,5 +19,6 @@ public class AlamatSekolah extends AppCompatActivity {
         Intent i = new Intent(AlamatSekolah.this, ProfileActivity.class);
         startActivity(i);
         finish();
+        //a
     }
 }

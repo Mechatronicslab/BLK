@@ -1,4 +1,4 @@
-package com.example.juli_soep.sekolah.admin_akademik.DataKaryawan;
+package com.example.juli_soep.sekolah.admin_akademik;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.karyawan;
 import com.example.juli_soep.sekolah.admin_akademik.DataMapel.Mapel;
 import com.example.juli_soep.sekolah.home.MainActivity;
 import com.example.juli_soep.sekolah.R;

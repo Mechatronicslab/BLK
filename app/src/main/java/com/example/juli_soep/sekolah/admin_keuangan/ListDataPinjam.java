@@ -23,7 +23,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity;
+import com.example.juli_soep.sekolah.admin_akademik.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.karyawan;
 import com.example.juli_soep.sekolah.helper.admin_keuangan.Adapter;
 import com.example.juli_soep.sekolah.helper.admin_keuangan.DataPeminjaman;

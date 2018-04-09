@@ -62,6 +62,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--API GOOGLE MAPS KEY-->
+    <string name="API_GoogleMaps" templateMergeStrategy="preserve" translatable="false">AIzaSyAUNc3gIKXfgIlF958XY49YS1uqnt6LIzo</string>
 
     <string-array name="StringSpinJabatan">
         <item>Kepala Sekolah</item>
@@ -152,5 +154,7 @@
         <item>II D</item>
         <item>II C</item>
     </string-array>
+
+
 
 </resources>

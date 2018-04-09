@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:name="volley.AppController"
@@ -12,6 +14,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/API_GoogleMaps"/>
         <activity
             android:name=".home.WelcomeActivity"
             android:screenOrientation="portrait"
@@ -45,7 +51,7 @@
         <activity android:name=".home.MisiSekolah" />
         <activity android:name=".home.AlamatSekolah" />
         <activity android:name=".admin_akademik.DaftarGuru" />
-        <activity android:name=".admin_akademik.DataKaryawan.AdminAkademikActivity" />
+        <activity android:name=".admin_akademik.AdminAkademikActivity" />
         <activity android:name=".siswa.SiswaActivity" />
         <activity android:name=".guru.GuruActivity" />
         <activity android:name=".siswa.ProfileSiswa" />
@@ -71,7 +77,8 @@
         <activity android:name=".admin_keuangan.SetPinjaman" />
         <activity android:name=".admin_keuangan.ListDataPinjam" />
         <activity android:name=".admin_keuangan.DetailPeminjaman" />
-        <activity android:name=".admin_keuangan.ListDataGajih"></activity>
+        <activity android:name=".admin_keuangan.ListDataGajih" />
+        <activity android:name=".GoogleMaps.googlemaps"></activity>
     </application>
 
 </manifest>

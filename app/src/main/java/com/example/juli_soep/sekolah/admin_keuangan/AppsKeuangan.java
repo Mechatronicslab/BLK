@@ -12,7 +12,6 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.juli_soep.sekolah.R;
-import com.example.juli_soep.sekolah.admin_akademik.DataKaryawan.AdminAkademikActivity;
 import com.example.juli_soep.sekolah.home.MainActivity;
 
 import java.util.HashMap;
